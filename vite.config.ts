@@ -6,11 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-<<<<<<< HEAD:menarini.marco@gmail.com
   base: '/vue-tmrc/',
-=======
-  base: '/tmrc/',
->>>>>>> parent of 2fb5bd8 (Update vite.config.ts):vite.config.ts
   plugins: [vue(), vueDevTools()],
   preview: {
     allowedHosts: ['tmrc.menalab.site'],
