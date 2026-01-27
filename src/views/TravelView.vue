@@ -11,7 +11,7 @@ const focusChips = ['Component map', 'Motion cues', 'Content scaffolds']
 </script>
 
 <template>
-  <section class="hero">
-    <div class="hero-text"/>
+  <section class="main">
+    <div class="main-text" />
   </section>
 </template>
