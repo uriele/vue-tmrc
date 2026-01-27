@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import { Carousel } from 'bootstrap'
 
 const images: string[] = [
   new URL('../assets/ucsd/ucsd1.jpg', import.meta.url).href,
@@ -10,17 +9,6 @@ const images: string[] = [
 ]
 
 const carouselEl = ref<HTMLElement | null>(null)
-let carousel: Carousel | null = null
-
-onMounted(() => {
-  if (!carouselEl.value) return
-  carousel = new Carousel(carouselEl.value, { interval: 2000, ride: 'carousel' })
-})
-
-onBeforeUnmount(() => {
-  carousel?.dispose()
-  carousel = null
-})
 </script>
 <template>
   <div id="carouselUCSDAutoplaying" ref="carouselEl" class="carousel slide">
