@@ -1,13 +1,29 @@
 <script setup lang="ts">
-const images = [
-  'src/assets/ucsd/ucsd1.jpg',
-  'src/assets/ucsd/ucsd2.jpg',
-  'src/assets/ucsd/ucsd3.jpg',
-  'src/assets/ucsd/ucsd4.jpg',
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { Carousel } from 'bootstrap'
+
+const images: string[] = [
+  new URL('../assets/ucsd/ucsd1.jpg', import.meta.url).href,
+  new URL('../assets/ucsd/ucsd2.jpg', import.meta.url).href,
+  new URL('../assets/ucsd/ucsd3.jpg', import.meta.url).href,
+  new URL('../assets/ucsd/ucsd4.jpg', import.meta.url).href,
 ]
+
+const carouselEl = ref<HTMLElement | null>(null)
+let carousel: Carousel | null = null
+
+onMounted(() => {
+  if (!carouselEl.value) return
+  carousel = new Carousel(carouselEl.value, { interval: 2000, ride: 'carousel' })
+})
+
+onBeforeUnmount(() => {
+  carousel?.dispose()
+  carousel = null
+})
 </script>
 <template>
-  <div id="carouselUCSDAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselUCSDAutoplaying" ref="carouselEl" class="carousel slide">
     <div class="carousel-inner center">
       <div
         class="carousel-item"
@@ -15,7 +31,7 @@ const images = [
         :key="image"
         :class="{ active: index === 0 }"
       >
-        <img :src="image" as string class="w-100 object-contain bg-black" />
+        <img :src="image" class="w-100 object-contain bg-black" />
       </div>
     </div>
     <button

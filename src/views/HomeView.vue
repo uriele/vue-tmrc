@@ -4,11 +4,12 @@ import UCSDCarousel from '@/components/UCSDCarousel.vue'
 </script>
 
 <template>
-  <UCSDCarousel />
   <section class="main">
     <div class="main-text">
       <p class="eyebrow reveal" style="--delay: 0s">TMRC 2026</p>
       <h1 class="reveal" style="--delay: 0.1s">San Diego, California.</h1>
+
+      <UCSDCarousel />
       <p class="lead reveal" style="--delay: 0.2s">
         The 37th Magnetic Recording Conference will be held at University of California, San Diego
         on August 3rd – August 5th, 2026. The focus of TMRC 2026 is Solid State Magnetic Memory,
