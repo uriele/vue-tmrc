@@ -16,8 +16,8 @@ const navLinks = [
 
   <!-- Top Navbar -->
   <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+    <div class="container-fluid bg-primary">
+      <a class="navbar-brand text-secondary" href="#">
         <h5>37th Magnetic Recording Conference</h5>
         <h6>August 3rd - 5th, 2026</h6>
       </a>
@@ -39,7 +39,12 @@ const navLinks = [
       >
         <div class="offcanvas-body">
           <div class="navbar-nav">
-            <RouterLink class="nav-link" v-for="link in navLinks" :key="link.label" :to="link.to">
+            <RouterLink
+              class="nav-link text-secondary"
+              v-for="link in navLinks"
+              :key="link.label"
+              :to="link.to"
+            >
               {{ link.label }}
             </RouterLink>
           </div>
@@ -52,7 +57,7 @@ const navLinks = [
     <RouterView />
   </main>
 
-  <footer class="content p-4 mt-4 bg-secondary text-white">
+  <footer class="content p-4 mt-4 bg-primary text-secondary">
     <div class="footer-inner">
       <p>
         © Regents of the University of California, San Diego. All rights reserved. The University of

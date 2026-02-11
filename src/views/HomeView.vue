@@ -25,7 +25,7 @@ import UCSDCarousel from '@/components/UCSDCarousel.vue'
       </p>
     </div>
 
-    <div class="card border-dark text-bg-primary mb-3" style="--delay: 0.35s">
+    <div class="card border-dark bg-primary text-secondary mb-3" style="--delay: 0.35s">
       <h3 class="card-header">Topic of Interest Include</h3>
       <div class="card-body">
         <h5 class="card-title">Solid State Memory – Devices and Applications</h5>

@@ -24,3 +24,15 @@
   height: 300px; /* Set desired height */
   object-fit: contain; /* Crop to fill */
 }
+/* UCSD Colors */
+:root,
+[data-bs-theme='dark'] {
+  --bs-primary: #182b49;
+  --bs-primary-rgb: 24, 43, 73;
+  --bs-secondary: #ffcd00;
+  --bs-secondary-rgb: 255, 205, 0;
+
+  /* optional: better link/button harmony */
+  --bs-link-color: var(--bs-primary);
+  --bs-link-hover-color: color-mix(in srgb, var(--bs-primary) 80%, #000);
+}
