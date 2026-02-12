@@ -36,3 +36,18 @@
   --bs-link-color: var(--bs-primary);
   --bs-link-hover-color: color-mix(in srgb, var(--bs-primary) 80%, #000);
 }
+
+.img-logo {
+  max-width: 100px;
+  height: auto;
+}
+
+.page {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.carousel-item-height {
+  height: 300px;
+}

@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue' 
+import HomeView from '../views/HomeView.vue'
 import InformationView from '../views/InformationView.vue'
 import CommitteeView from '../views/CommitteeView.vue'
 import ProgramView from '../views/ProgramView.vue'
-import TravelView from '../views/TravelView.vue' 
-
+import TravelView from '../views/TravelView.vue'
+import SpeakerNominationsView from '../views/InvitedSpeakerNominationsView.vue'
+import RegistrationView from '../views/RegistrationView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior: () => ({ top: 0 }),
@@ -20,6 +21,11 @@ const router = createRouter({
       component: InformationView,
     },
     {
+      path: '/invited-speaker-nominations',
+      name: 'invited-speaker-nominations',
+      component: SpeakerNominationsView,
+    },
+    {
       path: '/committee',
       name: 'committee',
       component: CommitteeView,
@@ -28,6 +34,11 @@ const router = createRouter({
       path: '/program',
       name: 'program',
       component: ProgramView,
+    },
+    {
+      path: '/registration',
+      name: 'registration',
+      component: RegistrationView,
     },
     {
       path: '/travel',
