@@ -1,25 +1,64 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
-const images: string[] = [
-  new URL('../assets/ucsd/ucsd1.jpg', import.meta.url).href,
-  new URL('../assets/ucsd/ucsd2.jpg', import.meta.url).href,
-  new URL('../assets/ucsd/ucsd3.jpg', import.meta.url).href,
-  new URL('../assets/ucsd/ucsd4.jpg', import.meta.url).href,
+type Slide =
+  | {
+      kind: 'image'
+      src: string
+      alt?: string
+      first?: boolean
+    }
+  | {
+      kind: 'video'
+      src: string
+      title?: string
+      first?: boolean
+    }
+const slides: Slide[] = [
+  {
+    kind: 'video',
+    src: new URL('../assets/ucsd/tmrc2026.mp4', import.meta.url).href,
+    title: 'UCSD Video',
+    first: true,
+  },
+  { kind: 'image', src: new URL('../assets/ucsd/ucsd1.jpg', import.meta.url).href },
+  { kind: 'image', src: new URL('../assets/ucsd/ucsd2.jpg', import.meta.url).href },
+  { kind: 'image', src: new URL('../assets/ucsd/ucsd3.jpg', import.meta.url).href },
+  { kind: 'image', src: new URL('../assets/ucsd/ucsd4.jpg', import.meta.url).href },
 ]
 
 const carouselEl = ref<HTMLElement | null>(null)
 </script>
 <template>
-  <div id="carouselUCSDAutoplaying" ref="carouselEl" class="carousel slide">
+  <div
+    id="carouselUCSDAutoplaying"
+    ref="carouselEl"
+    class="carousel slide mb-4"
+    data-bs-ride="carousel"
+    data-bs-interval="5000"
+  >
     <div class="carousel-inner center">
       <div
         class="carousel-item"
-        v-for="(image, index) in images"
-        :key="image"
-        :class="{ active: index === 0 }"
+        v-for="slide in slides"
+        :key="slide.kind"
+        :class="{ active: slide.first }"
       >
-        <img :src="image" class="w-100 object-contain bg-black" />
+        <!-- IMAGE -->
+        <img
+          v-if="slide.kind === 'image'"
+          :src="slide.src"
+          :alt="slide.alt ?? ''"
+          class="w-100 object-contain bg-black carousel-item-height d-block"
+        />
+
+        <!-- VIDEO -->
+        <div
+          v-else
+          class="w-100object-contain bg-black carousel-item-height d-flex justify-content-center align-items-center"
+        >
+          <video :src="slide.src" class="img-fluid" autoplay loop muted />
+        </div>
       </div>
     </div>
     <button

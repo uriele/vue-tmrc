@@ -1,10 +1,28 @@
 <script setup lang="ts">
 //import { RouterLink } from 'vue-router'
+import PageTitle from '@/components/PageTitle.vue'
 import UCSDCarousel from '@/components/UCSDCarousel.vue'
+
+defineProps({
+  formLink: {
+    type: String,
+    required: true,
+  },
+  chairsEmail: {
+    type: String,
+    required: true,
+  },
+})
 </script>
 
 <template>
-  <section class="main">
+  <PageTitle
+    mainTitle="Welcome to TMRC 2026"
+    subTitle="The 37th Magnetic Recording Conference"
+    subSubtitle="August 3rd – August 5th, 2026 | University of California, San Diego"
+  />
+
+  <section class="main p-4">
     <div class="main-text">
       <p class="eyebrow reveal" style="--delay: 0s">TMRC 2026</p>
       <h1 class="reveal" style="--delay: 0.1s">San Diego, California.</h1>
@@ -25,7 +43,7 @@ import UCSDCarousel from '@/components/UCSDCarousel.vue'
       </p>
     </div>
 
-    <div class="card border-dark text-bg-primary mb-3" style="--delay: 0.35s">
+    <div class="card border-dark bg-primary text-secondary mb-3" style="--delay: 0.35s">
       <h3 class="card-header">Topic of Interest Include</h3>
       <div class="card-body">
         <h5 class="card-title">Solid State Memory – Devices and Applications</h5>
@@ -64,18 +82,9 @@ import UCSDCarousel from '@/components/UCSDCarousel.vue'
     <div class="main-text">
       <p class="lead reveal" style="--delay: 0.2s">
         To nominate an invited speaker, please complete our
-        <a href="https://example.com/nomination-form" target="_blank" rel="noopener noreferrer"
-          ><u>online nomination form</u></a
-        >
-        (preferred) or <a><u>email the Program Chairs directly</u></a
-        >. Review the nomination
-        <a
-          href="https://example.com/nomination-guidelines"
-          target="_blank"
-          rel="noopener noreferrer"
-          ><u>guidelines</u></a
-        >
-        before submitting your proposal by the March 18, 2026 deadline.
+        <a :href="`${formLink}`">online nomination form</a>
+        (preferred) or
+        <a :href="`mailto:${chairsEmail}`">email the Program Chairs directly</a>.
       </p>
     </div>
   </section>

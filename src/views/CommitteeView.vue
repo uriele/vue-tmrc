@@ -57,6 +57,7 @@ const technicalChair = [{ name: 'Marco Menarini', company: CNR, email: 'm.menari
 </script>
 
 <template>
+  <PageTitle mainTitle="Committee" />
   <section class="main">
     <div class="main-text">
       <h1 class="reveal" style="--delay: 0.1s">Conference chair</h1>

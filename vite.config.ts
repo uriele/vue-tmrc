@@ -9,7 +9,7 @@ export default defineConfig({
   base: '/',
   plugins: [vue(), vueDevTools()],
   preview: {
-    allowedHosts: ['tmrc.menalab.site'],
+    allowedHosts: ['tmrc2026.menalab.site'],
   },
   resolve: {
     alias: {
