@@ -24,15 +24,6 @@ const router = createRouter({
       },
     },
     {
-      path: '/invited-speaker-nominations',
-      name: 'invited-speaker-nominations',
-      component: SpeakerNominationsView,
-      props: {
-        formLink: formLink,
-        chairsEmail: chairsEmail,
-      },
-    },
-    {
       path: '/information',
       name: 'information',
       component: InformationView,
@@ -41,6 +32,10 @@ const router = createRouter({
       path: '/invited-speaker-nominations',
       name: 'invited-speaker-nominations',
       component: SpeakerNominationsView,
+      props: {
+        formLink: formLink,
+        chairsEmail: chairsEmail,
+      },
     },
     {
       path: '/committee',
