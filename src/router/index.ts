@@ -38,11 +38,6 @@ const router = createRouter({
       component: InformationView,
     },
     {
-      path: '/invited-speaker-nominations',
-      name: 'invited-speaker-nominations',
-      component: SpeakerNominationsView,
-    },
-    {
       path: '/committee',
       name: 'committee',
       component: CommitteeView,
