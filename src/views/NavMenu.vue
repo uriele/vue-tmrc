@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
       </a>
 
       <button
-        class="navbar-toggler"
+        class="navbar-toggler bg-body-tertiary"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar"

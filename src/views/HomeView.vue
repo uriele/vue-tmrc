@@ -82,9 +82,7 @@ defineProps({
     <div class="main-text">
       <p class="lead reveal" style="--delay: 0.2s">
         To nominate an invited speaker, please complete our
-        <a :href="formLink" target="_blank" rel="noopener noreferrer"
-          ><u>online nomination form</u></a
-        >
+        <a :href="`${formLink}`">online nomination form</a>
         (preferred) or
         <a :href="`mailto:${chairsEmail}`">email the Program Chairs directly</a>.
       </p>
