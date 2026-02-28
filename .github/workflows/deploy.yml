@@ -40,8 +40,8 @@ jobs:
 
       - name: Build
         env:
-          VITE_GOOGLE_MAP_API_KEY: ${{ secrets.VITE_GOOGLE_MAP_API_KEY }}
-          VITE_GOOGLE_MAP_ID: ${{ secrets.VITE_GOOGLE_MAP_ID }}
+          VITE_GOOGLE_MAP_API_KEY: ${{ vars.VITE_GOOGLE_MAP_API_KEY }}
+          VITE_GOOGLE_MAP_ID: ${{ vars.VITE_GOOGLE_MAP_ID }}
         run: bun run build
       - name: Site map
         run: bun run generate:sitemap
