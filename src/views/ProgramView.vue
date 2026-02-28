@@ -114,7 +114,6 @@ onMounted(() => {
   color: var(--bs-secondary);
   padding: 16px;
   border-radius: 16px;
-  width: 280px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 </style>
