@@ -1,3 +1,5 @@
+
+
 export interface MapMarker {
   id: string
   name: string
@@ -7,4 +9,5 @@ export interface MapMarker {
   }
   description?: string
   link?: string
+  src?: URL
 }

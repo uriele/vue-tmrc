@@ -2,7 +2,7 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
 :root {
-  --content-max-width: 1140px;
+  --content-max-width: 1400px;
 }
 
 /* Constrain page content on large screens */

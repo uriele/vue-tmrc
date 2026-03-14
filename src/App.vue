@@ -7,12 +7,13 @@ const logoUrl: string = new URL('./assets/ucsd/logo.png', import.meta.url).href 
 
 const navLinks: NavLink[] = [
   { label: 'Home', to: '/' },
-  { label: 'Information', to: '/information' },
   { label: 'Committee', to: '/committee' },
   { label: 'Invited Speaker Nominations', to: '/invited-speaker-nominations' },
   { label: 'Program', to: '/program' },
-  { label: 'Registration', to: '/registration' },
-  { label: 'Travel', to: '/travel' },
+  { label: 'Keynote Speakers and Banquet', to: '/keynote-speakers-and-banquet' },
+  {label: 'Conference Location and Directions', to: '/conference-location-and-directions'},
+  {label: 'Poster Session', to: '/poster-session'},
+
 ]
 </script>
 
@@ -28,7 +29,7 @@ const navLinks: NavLink[] = [
         />
       </div>
 
-      <div class="col-12 col-xxl-9">
+      <div class="col-12 col-xxl-9 d-flex flex-column justify-content-between overflow-auto">
         <main class="content mb-4">
           <RouterView />
         </main>
