@@ -2,7 +2,7 @@
 
 <template>
   <PageTitle mainTitle="Poster Session" />
-  <section class="main">
+  <section class="main p4">
     <p class="lead">
       The poster session will be held in the main lobby of the Center for Memory and Recording Research (CMRR), providing ample space for attendees to browse and discuss the posters.
     </p>
