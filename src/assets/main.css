@@ -67,3 +67,8 @@
   top: 4px !important;
   right: 4px !important;
 }
+
+.nav-link:hover {
+  text-decoration: underline;
+  transform: scale(1.1) translateX(15px);
+}
