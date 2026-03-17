@@ -9,10 +9,38 @@ import RegistrationView from '../views/RegistrationView.vue'
 import type { MapMarker } from '@/stores/MapMarker'
 import MapInfoView from '@/views/MapInfoView.vue'
 import PosterSessionView from '@/views/PosterSessionView.vue'
+import VisaInformationView from '@/views/VisaInformationView.vue'
+import DigestSubmissionView from '@/views/DigestSubmission.vue'
+import PublicationInformationView from '@/views/PublicationInformationView.vue'
+import type { DownloadLink } from '@/stores/DownloadLinks'
+
 const formLink =
   'https://docs.google.com/forms/d/e/1FAIpQLSdlvy5A1-bQaxdgEIpaPOyuFYbyR-cSseKA5m0tO3obVZPsBw/viewform'
 const chairsEmail = 'niranjan.natekar@wdc.com'
 const ucsdLatLng = { lat: 32.8801, lng: -117.234 }
+
+const flyerLinks: DownloadLink[] = [
+  {
+    label: 'Extended Call for Nominations',
+    url: '/downloads/TMRC_2026_Extended_Call_for_Nominations.pdf',
+    filename: 'TMRC_2026_Extended_Call_for_Nominations.pdf'
+  }
+]
+
+const downloadLinks: DownloadLink[] = [
+  {
+    label: 'Digest Template Word',
+    url: '/downloads/digest_template_word.docx',
+    filename: 'digest_template.docx'
+  },
+  {
+    label: 'Digest Template LaTeX',
+    url: '/downloads/digest_template_latex.zip',
+    filename: 'digest_template.zip'
+  }
+]
+
+
 const markers: Array<MapMarker> = [
   {
     id: '1',
@@ -81,6 +109,7 @@ const router = createRouter({
       props: {
         formLink: formLink,
         chairsEmail: chairsEmail,
+        downloadLinks: flyerLinks,
       },
     },
     {
@@ -132,7 +161,26 @@ const router = createRouter({
       name: 'poster-session',
       path: '/poster-session',
       component: PosterSessionView,
-    }
+    },
+    {
+      path: '/visa-information',
+      name: 'visa-information',
+      component: () => VisaInformationView,
+    },
+    {
+      name: 'digest-submission',
+      path: '/digest-submission',
+      component: () => DigestSubmissionView,
+      props: {
+        downloads: downloadLinks,
+      },
+    },
+    {
+      name: 'publication-information',
+      path: '/publication-information',
+      component: () => PublicationInformationView,
+    },
+
   ],
 }
 )
