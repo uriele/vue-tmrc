@@ -21,7 +21,7 @@ defineProps<{
     <div class="d-flex justify-content-center align-items-center gap-4 p-2">
       <DownloadButton v-for="download in downloads" :key="download.filename" :downloads="download" />
     </div>
-    <p class="reveal" style="--delay: 0.4s">
+    <p class="lead">
       If you submit a PDF file, please ensure that all fonts are embedded in the file. To embed fonts in PDFs created by MS Word you should click "Create PDF/XPS", then click "Options", then check the "PDF/A compliant" box. If you are using LaTex you should make your PDF with the option "-dEmbedAllFonts=true".
     </p>
 
