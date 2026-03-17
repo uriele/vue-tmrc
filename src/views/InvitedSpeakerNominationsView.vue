@@ -28,7 +28,7 @@ defineProps({
       <a :href="`mailto:${chairsEmail}`">email the Program Chairs directly</a>. For Topics of
       Interest, please visit <RouterLink to="/">Home</RouterLink>.
     </p>
-    <h3 class="reveal text-decoration-underline" style="--delay: 0.4s">The deadline for nominations has been extended to April 10th, 2026.</h3>
+    <h3 class="reveal text-decoration-underline" style="--delay: 0.4s">The deadline for nominations has been extended to April 17th, 2026.</h3>
 
     <p> For more information please download the extended call for nominations below. </p>
     <div class="d-flex justify-content-center align-items-center">
