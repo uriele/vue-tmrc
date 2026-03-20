@@ -165,12 +165,12 @@ const router = createRouter({
     {
       path: '/visa-information',
       name: 'visa-information',
-      component: () => VisaInformationView,
+      component: VisaInformationView,
     },
     {
       name: 'digest-submission',
       path: '/digest-submission',
-      component: () => DigestSubmissionView,
+      component: DigestSubmissionView,
       props: {
         downloads: downloadLinks,
       },
@@ -178,9 +178,13 @@ const router = createRouter({
     {
       name: 'publication-information',
       path: '/publication-information',
-      component: () => PublicationInformationView,
+      component: PublicationInformationView,
     },
-
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('@/views/NotFound.vue'),
+    }
   ],
 }
 )

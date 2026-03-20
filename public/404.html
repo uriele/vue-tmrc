@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        const path = window.location.pathname + window.location.search + window.location.hash;
+        sessionStorage.setItem('redirect', path);
+
+        // IMPORTANT: adjust base path if needed
+        const base = '/'; 
+        window.location.replace(base);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

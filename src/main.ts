@@ -18,4 +18,16 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.component('font-awesome-icon', FontAwesomeIcon)
-app.component('PageTitle', PageTitle).mount('#app')
+app.component('PageTitle', PageTitle)
+
+
+const redirect = sessionStorage.getItem('redirect')
+
+if (redirect) {
+  sessionStorage.removeItem('redirect')
+  router.replace(redirect).catch(() => {})
+}
+
+router.isReady().then(() => {
+  app.mount('#app')
+})
