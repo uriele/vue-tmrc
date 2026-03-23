@@ -1,12 +1,42 @@
 <script setup lang="ts">
+
+defineProps<{
+  programEvents: {
+    date: string;
+    time: string;
+    event: string;
+    location: {
+      name: string;
+      link: string;
+    };
+  }[];
+}>()
 </script>
 
 <template>
   <PageTitle mainTitle="Program" />
   <section class="main p-4">
-    <p class="lead">
-      The full program schedule will be released closer to the conference date, but attendees can expect a diverse range of topics covering the latest research and developments in our field. We encourage all attendees to actively participate in the sessions and engage with the speakers and fellow attendees.
-    </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Event</th>
+          <th scope="col">Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="program in programEvents" :key="program.event">
+          <th scope="row">{{ program.date }}</th>
+          <td>{{ program.time }}</td>
+          <td>{{ program.event }}</td>
+          <td>
+          <a :href="`https://maps.app.goo.gl/${program.location.link}`" target="_blank">{{ program.location.name }}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
   </section>
 </template>
 

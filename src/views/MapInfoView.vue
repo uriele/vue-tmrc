@@ -48,7 +48,7 @@ const center = computed(() => {
     :markers="props.markers"
   >
       <p class="lead">
-        The conference will be held at the University of California, San Diego (UCSD) campus in La Jolla, CA. The main conference venue is the Center for Memory and Recording Research (CMRR), located in the heart of the campus.
+        The conference will be held at the University of California, San Diego (UCSD) campus in La Jolla, CA. The main conference venue is Atkinson Hall, located in the heart of the campus.
       </p>
       <p class="lead">
         UCSD is easily accessible from San Diego International Airport (SAN), which is approximately a 25-minute drive from campus. There are also several public transportation options available, including buses and shuttles.

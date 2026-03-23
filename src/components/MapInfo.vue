@@ -105,9 +105,9 @@ onMounted(() => {
             if (!open) activeId = null
           }
         "
-        class="bg-primary p-3 rounded"
+        class="bg-primary p-3 rounded vh-100"
       >
-        <div class="content custom-infowindow">
+        <div class="content custom-infowindow h-100 overflow-x-auto">
           <h4>{{ activeMarker.name }}</h4>
           <p>{{ activeMarker.description }}</p>
           <a :href="googleMapsLink" target="_blank" rel="noopener noreferrer" class="maps-link">

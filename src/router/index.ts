@@ -13,7 +13,7 @@ import VisaInformationView from '@/views/VisaInformationView.vue'
 import DigestSubmissionView from '@/views/DigestSubmission.vue'
 import PublicationInformationView from '@/views/PublicationInformationView.vue'
 import type { DownloadLink } from '@/stores/DownloadLinks'
-
+import type { Event } from '@/stores/Events'
 const formLink =
   'https://docs.google.com/forms/d/e/1FAIpQLSdlvy5A1-bQaxdgEIpaPOyuFYbyR-cSseKA5m0tO3obVZPsBw/viewform'
 const chairsEmail = 'niranjan.natekar@wdc.com'
@@ -41,29 +41,104 @@ const downloadLinks: DownloadLink[] = [
 ]
 
 
+const AtkinsonHall: MapMarker = {
+  id: 'atkinson-hall',
+  name: 'Atkinson Hall, UCSD',
+  position: {
+    lat: 32.88260061334128,
+    lng: -117.23478501349337
+  },
+  description: 'The conference venue for TMRC 2026.',
+  link: '92acsRGVDuzHrNev8',
+  src: new URL('../assets/conference.svg', import.meta.url),
+}
+
+const TorreyPinesGliderPort: MapMarker = {
+  id: 'torrey-pines-glider-port',
+  name: 'Torrey Pines Gliderport',
+  position: {
+    lat: 32.890096733644334,
+    lng: -117.25119027116445
+  },
+  description: 'The location for the conference dinner party on the evening of August 3rd, offering stunning views of the Pacific Ocean and a unique dining experience.',
+  link: 'vmfC5ntfKWiRqKim8',
+  src: new URL('../assets/restaurant.svg', import.meta.url),
+}
+
+
+const GreatHall: MapMarker = {
+  id: 'great-hall',
+  name: 'Great Hall, UCSD',
+  position: {
+    lat: 32.88407869054746,
+    lng: -117.24217791534218
+  },
+  description: 'The location for the conference banquet on the evening of August 4th.',
+  link: 'vfaTHPXJ3PpuW58D8',
+  src: new URL('../assets/restaurant.svg', import.meta.url),
+}
+
+const kayakers: MapMarker = {
+  id: 'kayakers',
+  name: 'La Jolla Shores',
+  position: {
+    lat: 32.85780167258335,
+    lng: -117.25724802328908
+  },
+  description: 'A popular beach located south of the conference venue, known for its kayaking and snorkeling opportunities.',
+  link: 'PMvuupCcjqT4Wqcy5',
+}
+
+
+const programEvents: Array<Event> = [
+  {
+    //Aug 2, 2026, 3:30-6:30pm San Diego Time
+    date: 'Aug 2',
+    time: '3:30-6:30pm',
+    event: 'IEEE Standards Committee workshop',
+    location: AtkinsonHall,
+    description: 'The official opening ceremony of the conference.'
+  },
+  {
+    date: 'Aug 2',
+    time: '7:00-9:00pm',
+    event: 'Reception',
+    location: AtkinsonHall,
+    description: 'Welcome reception with light refreshments and an opportunity to network with fellow attendees.'
+  },
+  {
+    date: 'Aug 3-5',
+    event: 'Oral and Poster Sessions',
+    location: AtkinsonHall,
+  },
+  {
+    date: 'Aug 3',
+    time: '7:00-10:00pm',
+    event: 'Dinner Party (Social Event)',
+    location: TorreyPinesGliderPort,
+    description: 'A social event for conference attendees to enjoy dinner and networking in a relaxed setting.'
+  },
+  {
+    date: 'Aug 4',
+    time: '7:00-10:00pm',
+    event: 'Banquet (Social Event)',
+    location: GreatHall,
+    description: 'The conference banquet, featuring a keynote speaker and an opportunity for attendees to socialize and celebrate the conference.'
+  },
+  {
+    date: 'Aug 5',
+    time: 'afternoon',
+    event: 'Kayaking (Social Event)',
+    location: kayakers,
+    description: 'A social event for conference attendees to enjoy kayaking and snorkeling in a beautiful coastal setting.'
+  }
+]
+
 const markers: Array<MapMarker> = [
-  {
-    id: '1',
-    name: 'CMRR Building',
-    position: {
-      lat: 32.88053452456918,
-      lng: -117.23580922408699,
-    },
-    description: 'The conference venue for TMRC 2024.',
-    link: 'qArw76N8qV3SULFS6',
-    src: new URL('../assets/conference.svg', import.meta.url),
-  },
-  {
-    id: '2',
-    name: 'Faculty Club',
-    position: {
-      lat: 32.8794531309708,
-      lng: -117.23955819831193,
-    },
-    description: 'The location for the conference banquet on the evening of June 26th.',
-    link: 'VjMz16yc4y2jm2w58',
-    src: new URL('../assets/restaurant.svg', import.meta.url),
-  },
+  AtkinsonHall,
+  TorreyPinesGliderPort,
+  GreatHall,
+  kayakers,
   {
     id: '3',
     name: 'Gilman Parking Structure',
@@ -127,6 +202,7 @@ const router = createRouter({
         center: ucsdLatLng,
         zoom: 10,
         markers: markers,
+        programEvents: programEvents,
       },
     },
 
@@ -143,7 +219,7 @@ const router = createRouter({
         apiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY || '',
         mapID: import.meta.env.VITE_GOOGLE_MAP_ID || '',
         center: ucsdLatLng,
-        zoom: 15.4,
+        zoom: 14,
         markers: markers,
       },
     },
