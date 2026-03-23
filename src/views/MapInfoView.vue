@@ -55,7 +55,7 @@ const center = computed(() => {
       </p>
       <h2> Parking Options </h2>
       <p class="lead">
-        For attendees driving to campus, there are several parking lots available near CMRR. We recommend using the <a href="https://maps.app.goo.gl/gBuCqJ1RKsZ3cXKy8" target="_blank" rel="noopener noreferrer">Gilman Parking Structure</a>  near the La Jolla Village Drive entrance
+        For attendees driving to campus, there are several parking lots available near Atkinson Hall. We recommend using the <a href="https://maps.app.goo.gl/gBuCqJ1RKsZ3cXKy8" target="_blank" rel="noopener noreferrer">Gilman Parking Structure</a>  near the La Jolla Village Drive entrance
          or the <a href="https://maps.app.goo.gl/etePwrBx7kYAGxr87" target="_blank" rel="noopener noreferrer">Hopkins Parking Structure near North Torrey Pines Road</a>. Parking fees apply, and it is advisable to arrive early to secure a spot.
       </p>
       <p class="lead">
