@@ -16,7 +16,8 @@ defineProps<{
 <template>
   <PageTitle mainTitle="Program" />
   <section class="main p-4">
-    <table class="table">
+    <h3 class="mb-3">Program at a Glance</h3>
+    <table class="table p-2 table-dark table-striped table-hover">
       <thead>
         <tr>
           <th scope="col">Date</th>

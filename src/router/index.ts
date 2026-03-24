@@ -14,11 +14,13 @@ import DigestSubmissionView from '@/views/DigestSubmission.vue'
 import PublicationInformationView from '@/views/PublicationInformationView.vue'
 import type { DownloadLink } from '@/stores/DownloadLinks'
 import type { Event } from '@/stores/Events'
+import WorkshopView from '@/views/WorkshopView.vue'
 const formLink =
   'https://docs.google.com/forms/d/e/1FAIpQLSdlvy5A1-bQaxdgEIpaPOyuFYbyR-cSseKA5m0tO3obVZPsBw/viewform'
 const chairsEmail = 'niranjan.natekar@wdc.com'
 const ucsdLatLng = { lat: 32.8801, lng: -117.234 }
-
+const greathallImage =  new URL('../assets/ucsd/ucsd7.jpg', import.meta.url).href
+const workshopRegistrationLink = 'https://forms.gle/PKmL21a9bnXeiYzA8'
 const flyerLinks: DownloadLink[] = [
   {
     label: 'Extended Call for Nominations',
@@ -40,6 +42,17 @@ const downloadLinks: DownloadLink[] = [
   }
 ]
 
+const CMRR: MapMarker= {
+    id: 'cmrr-building',
+    name: 'CMRR Building',
+    position: {
+      lat: 32.88053452456918,
+      lng: -117.23580922408699,
+    },
+    description: 'The venue for the standards in magnetics workshop.',
+    link: 'qArw76N8qV3SULFS6',
+    src: new URL('../assets/conference.svg', import.meta.url),
+  }
 
 const AtkinsonHall: MapMarker = {
   id: 'atkinson-hall',
@@ -96,7 +109,7 @@ const programEvents: Array<Event> = [
     date: 'Aug 2',
     time: '3:30-6:30pm',
     event: 'IEEE Standards Committee workshop',
-    location: AtkinsonHall,
+    location: CMRR,
     description: 'The official opening ceremony of the conference.'
   },
   {
@@ -136,6 +149,7 @@ const programEvents: Array<Event> = [
 
 const markers: Array<MapMarker> = [
   AtkinsonHall,
+  CMRR,
   TorreyPinesGliderPort,
   GreatHall,
   kayakers,
@@ -210,6 +224,10 @@ const router = createRouter({
       path: '/keynote-speakers-and-banquet',
       name: 'keynote-speakers-and-banquet',
       component: KeyNoteBanquetView,
+      props: {
+        marker: GreatHall,
+        imageSrc: greathallImage,
+      }
     },
     {
       path: '/conference-location-and-directions',
@@ -255,6 +273,15 @@ const router = createRouter({
       name: 'publication-information',
       path: '/publication-information',
       component: PublicationInformationView,
+    },
+    {
+      name: 'standards-in-magnetics-workshop',
+      path: '/standards-in-magnetics-workshop',
+      component: WorkshopView,
+      props: {
+        marker: CMRR,
+        registrationLink: workshopRegistrationLink,
+      }
     },
     {
       path: '/:pathMatch(.*)*',

@@ -25,6 +25,9 @@ const slides: Slide[] = [
   { kind: 'image', src: new URL('../assets/ucsd/ucsd2.jpg', import.meta.url).href },
   { kind: 'image', src: new URL('../assets/ucsd/ucsd3.jpg', import.meta.url).href },
   { kind: 'image', src: new URL('../assets/ucsd/ucsd4.jpg', import.meta.url).href },
+  { kind: 'image', src: new URL('../assets/ucsd/ucsd5.jpg', import.meta.url).href },
+  { kind: 'image', src: new URL('../assets/ucsd/ucsd6.jpg', import.meta.url).href },
+  { kind: 'image', src: new URL('../assets/ucsd/ucsd7.jpg', import.meta.url).href },
 ]
 
 const carouselEl = ref<HTMLElement | null>(null)

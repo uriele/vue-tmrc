@@ -13,6 +13,7 @@ const navLinks: NavLink[] = [
   { label: 'Keynote Speakers and Banquet', to: '/keynote-speakers-and-banquet' },
   {label: 'Conference Location and Directions', to: '/conference-location-and-directions'},
   {label: 'Poster Session', to: '/poster-session'},
+  {label: 'Standards in Magnetics Workshop', to: '/standards-in-magnetics-workshop'},
   {label: 'Visa Information', to: '/visa-information'},
   {label: 'Publication Information', to: '/publication-information'},
   {label: 'Digest Submission', to: '/digest-submission'},
