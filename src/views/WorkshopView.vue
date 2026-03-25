@@ -29,7 +29,7 @@ const link= computed(() => {
        This session is offered free of charge to the magnetics community. Pre-registration is mandatory for all attendees due to limited seating capacity.   </p>
   <p class="lead">
     Join us for talks, networking, and light food and beverages in this workshop dedicated to establishing a shared technical vocabulary and rigorous benchmark for the next
-    generation of storage and non-volatile memory technologies. The workshop will be held on August 3rd from 3:30pm to 6:30pm at the
+    generation of storage and non-volatile memory technologies. The workshop will be held on August 2nd from 3:30pm to 6:30pm at the
     <a :href="link" target="_blank" rel="noopener noreferrer">Center for Memory and Recording Research (CMRR)</a>  on the UCSD campus, followed by the TMRC opening reception.
   </p>
 
@@ -39,7 +39,7 @@ const link= computed(() => {
       <div class="card-body">
         <h5 class="card-title">Magnetics Enthusiasts:</h5>
         <p class="card-text p-2">
-          Enthusiasts: Protect emerging technologies from skepticism and ensure "apples-to-apples" comparisons that drive market adoption. Our broad
+          Protect emerging technologies from skepticism and ensure "apples-to-apples" comparisons that drive market adoption. Our broad
 goal is to move beyond laboratory-specific metrics to industry-wide consensus.
         </p>
         <h5 class="card-title">Engineers:</h5>
