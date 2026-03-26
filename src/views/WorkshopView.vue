@@ -15,8 +15,8 @@ const link= computed(() => {
 </script>
 
 <template>
-  <PageTitle mainTitle="Standards in Magentics Workshop"
-   subTitle="An IEEE Standards Association & IEEE Magnetics Society Summit"
+  <PageTitle mainTitle="Developing Standards in Magnetics: IEEE Magnetics Society and IEEE Standards Association Workshop"
+   subTitle="Theme 2: Standardizing Spintronics and Recording"
    subSubtitle="Chairs: Sidhant Tiwari, HRL and Dan Gopman, NIST"
   />
   <section class="main p-4">
