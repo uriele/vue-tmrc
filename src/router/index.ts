@@ -15,6 +15,8 @@ import PublicationInformationView from '@/views/PublicationInformationView.vue'
 import type { DownloadLink } from '@/stores/DownloadLinks'
 import type { Event } from '@/stores/Events'
 import WorkshopView from '@/views/WorkshopView.vue'
+import NielSmithAwardView from '@/views/NielSmithAwardView.vue'
+import CallForPosterView from '@/views/CallForPosterView.vue'
 const formLink =
   'https://docs.google.com/forms/d/e/1FAIpQLSdlvy5A1-bQaxdgEIpaPOyuFYbyR-cSseKA5m0tO3obVZPsBw/viewform'
 const chairsEmail = 'niranjan.natekar@wdc.com'
@@ -29,6 +31,7 @@ const flyerLinks: DownloadLink[] = [
   }
 ]
 
+const callForPosterLink = 'https://forms.gle/CM4BbhZ5h7kVvnM1A'
 const downloadLinks: DownloadLink[] = [
   {
     label: 'Digest Template Word',
@@ -281,6 +284,19 @@ const router = createRouter({
       props: {
         marker: CMRR,
         registrationLink: workshopRegistrationLink,
+      }
+    },
+    {
+      name:'neil-smith-award',
+      path: '/neil-smith-award',
+      component: NielSmithAwardView,
+    },
+    {
+      name:'call-for-posters',
+      path: '/call-for-posters',
+      component: CallForPosterView,
+      props: {
+        formLink: callForPosterLink,
       }
     },
     {

@@ -89,5 +89,15 @@ defineProps({
         <a :href="`mailto:${chairsEmail}`">email the Program Chairs directly</a>.
       </p>
     </div>
+
+    <div class="main-text">
+      <p class="lead reveal" style="--delay: 0.2s">
+        To submit a poster presentation, please prepare a 2-page digest using the digest template available on <router-link :to="{ name: 'digest-submission' }">the Digest Submission page</router-link>.
+        Next, submit your digest via the web form linked on the <router-link :to="{ name: 'call-for-posters' }">Call for Posters page</router-link> or contact the Poster Session Chair, <a href="mailto:mailto:simon@riec.tohoku.ac.jp">Simon Greaves</a>.
+        The deadline for poster submissions is <strong>May 8th, 2026</strong>.
+      </p>
+    </div>
+
+
   </section>
 </template>
