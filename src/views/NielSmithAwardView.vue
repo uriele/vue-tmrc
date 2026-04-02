@@ -53,7 +53,8 @@
       </div>
     </div>
     <p class="lead">
-    To be considered for the award, first submit your poster digest. Next, send the required submission materials listed above to xxxx@xxxx.xxx. Incomplete applications will not be considered. If you have any questions, please contact the Neil Smith Award Chair, Michael Grobis, at xxxx@xxxx.xxx.
+      Further information about the award and submission process will be provided soon.
+    <!-- To be considered for the award, first submit your poster digest. Next, send the required submission materials listed above to xxxx@xxxx.xxx. Incomplete applications will not be considered. If you have any questions, please contact the Neil Smith Award Chair, Michael Grobis, at xxxx@xxxx.xxx. -->
     </p>
   </section>
   </template>
