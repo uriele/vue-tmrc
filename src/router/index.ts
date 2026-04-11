@@ -15,7 +15,7 @@ import PublicationInformationView from '@/views/PublicationInformationView.vue'
 import type { DownloadLink } from '@/stores/DownloadLinks'
 import type { Event } from '@/stores/Events'
 import WorkshopView from '@/views/WorkshopView.vue'
-import NielSmithAwardView from '@/views/NielSmithAwardView.vue'
+import NeilSmithAwardView from '@/views/NeilSmithAwardView.vue'
 import CallForPosterView from '@/views/CallForPosterView.vue'
 const formLink =
   'https://docs.google.com/forms/d/e/1FAIpQLSdlvy5A1-bQaxdgEIpaPOyuFYbyR-cSseKA5m0tO3obVZPsBw/viewform'
@@ -289,7 +289,7 @@ const router = createRouter({
     {
       name:'neil-smith-award',
       path: '/neil-smith-award',
-      component: NielSmithAwardView,
+      component: NeilSmithAwardView,
     },
     {
       name:'call-for-posters',
