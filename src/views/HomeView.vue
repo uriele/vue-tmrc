@@ -2,6 +2,8 @@
 //import { RouterLink } from 'vue-router'
 import PageTitle from '@/components/PageTitle.vue'
 import UCSDCarousel from '@/components/UCSDCarousel.vue'
+import SponsorThanks from '../components/SponsorThanks.vue';
+import { CORPORATESPONSORS } from '@/router/routerConstants';
 
 defineProps({
   formLink: {
@@ -28,6 +30,8 @@ defineProps({
       <h1 class="reveal" style="--delay: 0.1s">San Diego, California.</h1>
 
       <UCSDCarousel />
+      <SponsorThanks :corporateSponsors="CORPORATESPONSORS" />
+
       <p class="lead reveal" style="--delay: 0.2s">
         The 37th Magnetic Recording Conference will be held at University of California, San Diego
         on August 3rd – August 5th, 2026. The focus of TMRC 2026 is Solid State Magnetic Memory,
@@ -101,3 +105,5 @@ defineProps({
 
   </section>
 </template>
+
+
