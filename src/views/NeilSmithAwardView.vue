@@ -8,7 +8,7 @@ const neilSmithAwardChair = { name: 'Michael Grobis', company: 'IEEE', email: 'm
 </script>
 
 <template>
-  <PageTitle mainTitle="Niel Smith Award" subTitle="IEEE Neil Smith Award for Contributions to the Understanding of Magnetic Phenomena in Materials and Devices" />
+  <PageTitle mainTitle="Neil Smith Award" subTitle="IEEE Neil Smith Award for Contributions to the Understanding of Magnetic Phenomena in Materials and Devices" />
   <section class="main p-4">
     <p class="lead">
       The Neil Smith Award will be presented at TMRC 2026 for the best student contribution
