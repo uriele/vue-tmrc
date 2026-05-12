@@ -8,8 +8,11 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig({
   base: '/',
   plugins: [vue(), vueDevTools()],
+  server: {
+    allowedHosts: ['tmrc2026.menalab.site', 'test_tmrc2026.menalab.site'],
+  },
   preview: {
-    allowedHosts: ['tmrc2026.menalab.site'],
+    allowedHosts: ['tmrc2026.menalab.site', 'test_tmrc2026.menalab.site'],
   },
   resolve: {
     alias: {
