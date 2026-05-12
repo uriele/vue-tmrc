@@ -6,12 +6,19 @@ import { useThemeMode } from '@/composables/useThemeMode'
 
 const logoUrl: string = new URL('./assets/ucsd/logo.png', import.meta.url).href // Replace with actual logo URL if available
 
-useThemeMode()
+const { selectedMode, nextMode } = useThemeMode()
 
 </script>
 
 <template>
   <div class="page container-fluid align-items-left p-0">
+    <button @click="nextMode()">
+    <i v-if="selectedMode === 'dark'" i-carbon-moon inline-block align-middle class="align-middle" />
+    <i v-if="selectedMode === 'light'" i-carbon-sun inline-block align-middle class="align-middle" />
+    <i v-if="selectedMode === 'auto'" i-carbon-laptop inline-block align-middle class="align-middle" />
+
+    <span class="ml-2 capitalize">Testing {{ selectedMode }} mode</span>
+    </button>
     <div class="row g-1">
 
       <div class="col-12 col-xxl-3">

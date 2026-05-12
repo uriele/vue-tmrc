@@ -43,16 +43,14 @@ const iframeSrc = computed(() => {
 </script>
 
 <template>
-  <div class="calendar-container vh-100">
   <iframe :src="iframeSrc"
-  class="calendar-iframe vh-100 max-h-1/4" ></iframe>
-  </div>
+  class="calendar-iframe " ></iframe>
 
 </template>
 
 <style scoped>
 .calendar-iframe {
   width: 100%;
-
+  aspect-ratio: 8/10;
 }
 </style>

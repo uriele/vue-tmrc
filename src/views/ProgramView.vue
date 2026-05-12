@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import { useThemeMode } from '@/composables/useThemeMode'
 defineProps<{
   programEvents: {
     date: string;
@@ -11,13 +11,15 @@ defineProps<{
     };
   }[];
 }>()
+
+const { isLight } = useThemeMode();
 </script>
 
 <template>
   <PageTitle mainTitle="Program" />
   <section class="main p-4">
     <h3 class="mb-3">Program at a Glance</h3>
-    <table class="table p-2 table-dark table-striped table-hover">
+    <table class="table p-2 table-striped table-hover">
       <thead>
         <tr>
           <th scope="col">Date</th>

@@ -355,7 +355,7 @@ export const NAVLINKS: NavLinks = [
       { label: 'Entertainment at TMRC', to: { name: 'entertainment-at-tmrc' } },
     ]
   },
-  { label: 'Sponsors', to: { name: 'sponsors' } },
+  //{ label: 'Sponsors', to: { name: 'sponsors' } },
   { label: 'Conference Location and Directions', to: { name: 'conference-location-and-directions' } },
   { group: 'Students Awards',
     links: [

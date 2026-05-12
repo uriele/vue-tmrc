@@ -54,7 +54,7 @@ const MyCalendar: CalendarApp = createCalendar({
   <PageTitle mainTitle="Calendar2" />
   <section class="main p-4">
       <h1 class="reveal" style="--delay: 0.1s">Conference Schedule</h1>
-      <ScheduleXCalendar :calendar-app="MyCalendar" />
+      <ScheduleXCalendar :calendar-app="MyCalendar"/>
   </section>
 </template>
 <style scoped>
