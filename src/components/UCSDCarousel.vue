@@ -58,7 +58,7 @@ const carouselEl = ref<HTMLElement | null>(null)
         <!-- VIDEO -->
         <div
           v-else
-          class="w-100object-contain bg-black carousel-item-height d-flex justify-content-center align-items-center"
+          class="w-100 object-contain bg-black carousel-item-height d-flex justify-content-center align-items-center"
         >
           <video :src="slide.src" class="img-fluid" autoplay loop muted />
         </div>

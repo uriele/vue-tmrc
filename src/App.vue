@@ -1,36 +1,22 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import NavMenu from './views/NavMenu.vue'
-import type { NavLink } from './stores/NavLinks'
+import { NAVLINKS } from '@/router/routerConstants'
+import { useThemeMode } from '@/composables/useThemeMode'
 
 const logoUrl: string = new URL('./assets/ucsd/logo.png', import.meta.url).href // Replace with actual logo URL if available
 
-const navLinks: NavLink[] = [
-  { label: 'Home', to: '/' },
-  { label: 'Committee', to: '/committee' },
-  { label: 'Invited Speaker Nominations', to: '/invited-speaker-nominations' },
-  { label: 'Call for Posters', to: '/call-for-posters' },
-  { label: 'Conference Program', to: '/program' },
-  { label: 'Sponsors', to: '/sponsors' },
-  { label: 'Keynote Speakers and Banquet', to: '/keynote-speakers-and-banquet' },
-  {label: 'Conference Location and Directions', to: '/conference-location-and-directions'},
-  {label: 'Poster Session', to: '/poster-session'},
-  {label: 'Neil Smith Award', to: '/neil-smith-award'},
-  {label: 'Travel Grants', to: '/travel-grants'},
-  {label: 'Standards in Magnetics Workshop', to: '/standards-in-magnetics-workshop'},
-  {label: 'Visa Information', to: '/visa-information'},
-  {label: 'Publication Information', to: '/publication-information'},
-  {label: 'Digest Submission', to: '/digest-submission'},
+useThemeMode()
 
-]
 </script>
 
 <template>
   <div class="page container-fluid align-items-left p-0">
     <div class="row g-1">
+
       <div class="col-12 col-xxl-3">
         <NavMenu
-          :navLinks="navLinks"
+          :navLinks="NAVLINKS"
           :conferenceTitle="'TMRC 2026'"
           :dates="'August 3rd - 5th, 2026'"
           :logo="logoUrl"

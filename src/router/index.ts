@@ -6,7 +6,8 @@ import TravelView from '../views/TravelView.vue'
 import SpeakerNominationsView from '../views/InvitedSpeakerNominationsView.vue'
 import KeyNoteBanquetView from '../views/KeyNoteBanquetView.vue'
 import RegistrationView from '../views/RegistrationView.vue'
-
+import InvitedSpeakerView from '@/views/InvitedSpeakerView.vue'
+import EntertainmentView from '@/views/EntertainmentView.vue'
 import MapInfoView from '@/views/MapInfoView.vue'
 import PosterSessionView from '@/views/PosterSessionView.vue'
 import VisaInformationView from '@/views/VisaInformationView.vue'
@@ -43,6 +44,10 @@ const router = createRouter({
         downloadLinks: Constants.FLYERLINKS
       },
     },
+    { path: '/program/invited-speakers',
+      name: 'invited-speakers',
+      component: InvitedSpeakerView,
+     },
     {
       path: '/committee',
       name: 'committee',
@@ -52,8 +57,8 @@ const router = createRouter({
       },
     },
     {
-      path: '/program',
-      name: 'program',
+      path: '/program/program-overview',
+      name: 'program-overview',
       component: ProgramView,
       props: {
         apiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY || '',
@@ -66,7 +71,7 @@ const router = createRouter({
     },
 
     {
-      path: '/keynote-speakers-and-banquet',
+      path: '/program/keynote-speakers-and-banquet',
       name: 'keynote-speakers-and-banquet',
       component: KeyNoteBanquetView,
       props: {
@@ -98,7 +103,7 @@ const router = createRouter({
     },
     {
       name: 'poster-session',
-      path: '/poster-session',
+      path: '/program/poster-session',
       component: PosterSessionView,
     },
     {
@@ -121,16 +126,20 @@ const router = createRouter({
     },
     {
       name: 'standards-in-magnetics-workshop',
-      path: '/standards-in-magnetics-workshop',
+      path: '/program/standards-in-magnetics-workshop',
       component: WorkshopView,
       props: {
         marker: Constants.CMRR,
         registrationLink: Constants.WORKSHOPREGISTRATIONLINK
       }
     },
+    { name: 'entertainment-at-tmrc',
+      path: '/program/entertainment-at-tmrc',
+      component: EntertainmentView,
+    },
     {
       name:'neil-smith-award',
-      path: '/neil-smith-award',
+      path: '/students-awards/neil-smith-award',
       component: NeilSmithAwardView,
     },
     {
@@ -152,7 +161,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/travel-grants',
+      path: '/students-awards/travel-grants',
       name: 'travel-grants',
       component: TravelGrantView,
       props: {
@@ -164,6 +173,19 @@ const router = createRouter({
       name: 'upcoming-conferences',
       path: '/upcoming-conferences',
       component: UpcomingConferencesView,
+    },
+    // TODO: Remove this route after testing the calendar view
+    {       name: 'testing-calendar',
+            path: '/testing-calendar',
+            component: () => import('@/views/CalendarView.vue'),
+            props: {
+                calLink: Constants.CALENDARDOWNLOADLINK
+              }
+    },
+    {
+      name: 'testing-my-calendar',
+      path: '/testing-my-calendar',
+      component: () => import('@/views/CalendarView2.vue'),
     },
     {
       path: '/:pathMatch(.*)*',

@@ -3,6 +3,7 @@ import type { DownloadLink } from '@/stores/DownloadLinks'
 import type { Event } from '@/stores/Events'
 import type { Sponsor, SponsorType } from '@/stores/Sponsor'
 import type { Person, RoleTypes } from '@/stores/Person'
+import type { NavLinks } from '@/stores/NavLinks'
 
 export const FORMLINK =
   'https://docs.google.com/forms/d/e/1FAIpQLSdlvy5A1-bQaxdgEIpaPOyuFYbyR-cSseKA5m0tO3obVZPsBw/viewform'
@@ -185,7 +186,14 @@ export const LOCALHOSTS: Array<Sponsor>  = [
 
 export const SPONSORS: Array<Sponsor>  = [
   {
+    name: 'IEEE',
+    logo: new URL('../assets/sponsors/ieee-logo.png', import.meta.url),
+    website: new URL('https://www.ieee.org/'),
+    type: 'none' as SponsorType
+  },
+  {
     name: 'IEEE Magnetics Society',
+    logo: new URL('../assets/sponsors/ieee-magnetic-logo.png', import.meta.url),
     website: new URL('https://www.ieeemagnetics.org/'),
     type: 'none' as SponsorType
   }
@@ -331,3 +339,39 @@ export const TECHNICALCHAIR: Person = { name: 'Marco Menarini', company: CNR, em
 export const COMMITTEE: Person[] = [CONFERENCECHAIR, TREASURER, TECHNICALCHAIR, ...PROGRAMCHAIRS, ...POSTERCHAIRS, ...LOCALCHAIRS, ...PUBLICITYCHAIRS]
 
 export const TRAVELGRANTAWARDEMAIL = 'tmrc2026@gmail.com'
+
+export const NAVLINKS: NavLinks = [
+  { label: 'Home', to: { name: 'home' } },
+  { label: 'Committee', to: { name: 'committee' } },
+  { label: 'Invited Speaker Nominations', to: { name: 'invited-speaker-nominations' } },
+  { label: 'Call for Posters', to: { name: 'call-for-posters' } },
+  { group: 'Program',
+    links: [
+      { label: 'Program Overview', to: { name: 'program-overview' } },
+      { label: 'Invited Speakers', to: { name: 'invited-speakers' } },
+      { label: 'Keynote Speakers and Banquet', to: { name: 'keynote-speakers-and-banquet' } },
+      { label: 'Poster Session', to: { name: 'poster-session' } },
+      { label: 'Standards in Magnetics Workshop', to: { name: 'standards-in-magnetics-workshop' } },
+      { label: 'Entertainment at TMRC', to: { name: 'entertainment-at-tmrc' } },
+    ]
+  },
+  { label: 'Sponsors', to: { name: 'sponsors' } },
+  { label: 'Conference Location and Directions', to: { name: 'conference-location-and-directions' } },
+  { group: 'Students Awards',
+    links: [
+      { label: 'Neil Smith Award', to: { name: 'neil-smith-award' } },
+      { label: 'Travel Grants', to: { name: 'travel-grants' } },
+    ]
+  },
+  { label: 'Visa Information', to: { name: 'visa-information' } },
+  { label: 'Publication Information', to: { name: 'publication-information' } },
+  { label: 'Digest Submission', to: { name: 'digest-submission' } },
+  //TODO: Remove this link after testing the calendar view
+  { label: 'Calendar View (Google)', to: { name: 'testing-calendar' } },
+  { label: 'Calendar View (Internal)', to: { name: 'testing-my-calendar' } },
+
+]
+
+export const CALENDARDOWNLOADLINK: string = '4ed40fcf81c55287eda7da21ad9cd7fc3558c5618d06746224296234824a1269@group.calendar.google.com'
+
+export const INVITEDSPEAKERS: Person[] = [];

@@ -5,6 +5,11 @@
   --content-max-width: 1400px;
 }
 
+body{
+  /* Set it programmatically to match the font used in the UCSD website */
+  font-family: "Calibri", sans-serif;
+}
+
 /* Constrain page content on large screens */
 .content {
   width: 100%;
@@ -25,17 +30,30 @@
   object-fit: contain; /* Crop to fill */
 }
 /* UCSD Colors */
-:root,
-[data-bs-theme='dark'] {
+:root {
   --bs-primary: #182b49;
   --bs-primary-rgb: 24, 43, 73;
   --bs-secondary: #ffcd00;
   --bs-secondary-rgb: 255, 205, 0;
-
-  /* optional: better link/button harmony */
-  --bs-link-color: var(--bs-primary);
-  --bs-link-hover-color: color-mix(in srgb, var(--bs-primary) 80%, #000);
+;
 }
+
+[data-bs-theme='dark'] {
+  /* optional: better link/button harmony */
+  --bs-link-color-rgb: var(--bs-secondary-rgb);
+  --bs-link-hover-color-rgb: color-mix( var(--bs-secondary-rgb) 80%, var(--bs-primary-rgb) 20%)}
+
+[data-bs-theme='light'] {
+  --bs-body-bg: var(--bs-white);
+  --bs-body-color: var(--bs-black);
+  --bs-accent: #ed0c6e;
+  --bs-accent-rgb: 237, 12, 110;
+
+  .a {
+    font-weight: bold;
+  }
+}
+
 
 .img-logo {
   max-width: 100px;
@@ -71,4 +89,9 @@
 .nav-link:hover {
   text-decoration: underline;
   transform: scale(1.1) translateX(15px);
+}
+
+
+.card-light {
+  background-color: var(--bs-accent);
 }

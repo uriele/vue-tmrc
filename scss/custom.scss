@@ -1,0 +1,27 @@
+
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// 4. Include any optional Bootstrap components as you like
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+
+// Theme-specific overrides keyed off Bootstrap's theme attribute
+[data-bs-theme='light'] {
+  --bs-body-bg: var(--bs-white);
+  --bs-body-color: var(--bs-black);
+  /* change link color to dark blue in light mode */
+  --bs-link-color-rgb: var(--bs-blue-800-rgb);
+  --bs-link-hover-color-rgb: var(--bs-blue-900-rgb);
+}
