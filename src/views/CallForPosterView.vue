@@ -20,7 +20,7 @@ defineProps({
       If you are unable to submit your digest via the web form, please contact the TMRC Poster Session Chair,
 
       <a href="mailto:simon@riec.tohoku.ac.jp">Simon Greaves</a>. Please submit your digest by
-      <strong>May 8th, 2026</strong>.
+      <strong>May 29th, 2026</strong>.
     </p>
 
     <p class="lead">
