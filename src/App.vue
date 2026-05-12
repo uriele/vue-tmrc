@@ -12,6 +12,7 @@ const navLinks: NavLink[] = [
   { label: 'Call for Posters', to: '/call-for-posters' },
   { label: 'Conference Program', to: '/program' },
   { label: 'Sponsors', to: '/sponsors' },
+  { label: 'Conference Registration', to: '/conference-registration' },
   { label: 'Keynote Speakers and Banquet', to: '/keynote-speakers-and-banquet' },
   {label: 'Conference Location and Directions', to: '/conference-location-and-directions'},
   {label: 'Poster Session', to: '/poster-session'},
