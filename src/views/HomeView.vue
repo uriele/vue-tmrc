@@ -36,7 +36,7 @@ const dataSource: { id: number; value: string }[] = [{
   <div class="box"
   :class="{' card-light text-secondary':isLight}"
   >
-  <LoopScroll :dataSource="dataSource" direction="left" class="display-5" waitMode="item" loadCount="1">
+  <LoopScroll :dataSource="dataSource" direction="left" class="display-5" waitMode="item" >
       <template #default="{ item }">
         <span>{{ item.value }}</span>
       </template>

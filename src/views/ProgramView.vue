@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useThemeMode } from '@/composables/useThemeMode'
 defineProps<{
   programEvents: {
     date: string;
@@ -12,7 +11,6 @@ defineProps<{
   }[];
 }>()
 
-const { isLight } = useThemeMode();
 </script>
 
 <template>
