@@ -2,13 +2,12 @@
 
 <template>
   <PageTitle mainTitle="Registration" />
-  <section class="main">
-    <div class="main-text">
+  <section class="main p-4">
       <p class="lead">
-        The conference registration commence on May 11, 2026.
-        Early registration deadline is June 30, 2026. Please watch this
-        space for the link to the registration portal
+        TMRC registration is now live. Please register at the link: <a href="https://cvent.me/gqALeN" target="_blank">https://cvent.me/gqALeN</a>
       </p>
-    </div>
+      <p class="lead">
+        Early registration ends on June 30, 2026
+      </p>
   </section>
 </template>

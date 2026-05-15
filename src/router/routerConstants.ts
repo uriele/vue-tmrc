@@ -345,6 +345,7 @@ export const NAVLINKS: NavLinks = [
   { label: 'Committee', to: { name: 'committee' } },
   { label: 'Invited Speaker Nominations', to: { name: 'invited-speaker-nominations' } },
   { label: 'Call for Posters', to: { name: 'call-for-posters' } },
+  { label: 'Registration', to: { name: 'conference-registration' } },
   { group: 'Program',
     links: [
       { label: 'Program Overview', to: { name: 'program-overview' } },

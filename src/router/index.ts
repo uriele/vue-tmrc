@@ -92,8 +92,8 @@ const router = createRouter({
       },
     },
     {
-      path: '/registration',
-      name: 'registration',
+      path: '/conference-registration',
+      name: 'conference-registration',
       component: RegistrationView,
     },
     {
