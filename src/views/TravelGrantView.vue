@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import PageTitle from '@/components/PageTitle.vue'
 import type { Person } from '@/stores/Person'
+import { useThemeMode } from '@/composables/useThemeMode'
 defineProps({
   grantawardemail: {
     type: String,
@@ -11,6 +12,8 @@ defineProps({
     required: true,
   }
 })
+
+const { isLight } = useThemeMode()
 </script>
 
 <template>
@@ -20,7 +23,7 @@ defineProps({
       Students presenting posters at the poster session or delivering oral presentations at TMRC 2026 are eligible to apply for travel
       grants up to $1000. To apply for travel grants, confirmed conference registration and digest submission is mandatory.
       Please submit to <a :href="`mailto:${grantawardemail}`">{{ grantawardemail }}</a> an email with the subject line:
-      <span class="text-secondary">’Travel Grant Application for {Insert applicant name}’</span> and
+      <span :class="{ 'text-secondary': !isLight }">’Travel Grant Application for {Insert applicant name}’</span> and
       include the following in the email body:
     </p>
     <div class="card border-dark bg-primary text-secondary mb-3" style="--delay: 0.35s">

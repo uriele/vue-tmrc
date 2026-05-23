@@ -10,10 +10,10 @@ const link= `https://maps.app.goo.gl/${props.marker.link}`
 </script>
 
 <template>
-  <PageTitle mainTitle="Keynote Speech and Banquet" />
+  <PageTitle mainTitle="Conference Banquet" />
   <section class="main p-4">
 
-    <img :src="props.imageSrc" alt="Keynote Banquet" class="img-fluid mb-4 d-block mx-auto" />
+    <img :src="props.imageSrc" alt="Conference Banquet" class="img-fluid mb-4 d-block mx-auto" />
     <p class="lead">
       The TMRC 2026 Conference Banquet will be held at the <a :href="link" target="_blank" rel="noopener noreferrer">Great Hall at UCSD</a>
       on August 4 from 7pm to 10pm PT. The award-winning International House Great Hall employs beautiful architecture of Safdie Rabines which features stunning views.

@@ -40,6 +40,16 @@ const iframeSrc = computed(() => {
     return `https://calendar.google.com/calendar/embed?${params.toString()}`;
 });
 
+const iframe = document.querySelector('iframe')
+
+iframe?.addEventListener('load', () => {
+  const frameWindow = iframe.contentWindow
+  const frameDocument = iframe.contentDocument
+
+  if (!frameWindow || !frameDocument) return
+
+  frameWindow.scrollTo(0, frameDocument.body.scrollHeight)
+})
 </script>
 
 <template>
@@ -51,6 +61,7 @@ const iframeSrc = computed(() => {
 <style scoped>
 .calendar-iframe {
   width: 100%;
-  aspect-ratio: 8/10;
+  aspect-ratio: 1;
 }
+
 </style>

@@ -31,7 +31,7 @@ const { selectedMode, nextMode } = useThemeMode()
       </div>
 
       <div class="col-12 col-xxl-9 d-flex flex-column justify-content-between overflow-auto">
-        <main class="content mb-4">
+        <main class="content">
           <RouterView />
         </main>
 

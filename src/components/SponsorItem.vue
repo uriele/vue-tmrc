@@ -35,9 +35,7 @@ const link = computed(() => props.sponsor.website?.href || '#');
 
 <style scoped>
 .sponsor-logo {
-    min-height: 50px;
-    max-height: 150px; /* Set desired uniform height */
-    max-width: 150px; /* Adjust width to maintain aspect ratio */
+    max-height: 120px; /* Adjust height to maintain aspect ratio */
 }
 
 </style>

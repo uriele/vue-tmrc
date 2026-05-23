@@ -1,4 +1,5 @@
 
+export type MarkerType = 'venue' | 'hotel' | 'restaurant' | 'parking' | 'other'
 
 export interface MapMarker {
   id: string
@@ -10,4 +11,5 @@ export interface MapMarker {
   description?: string
   link?: string
   src?: URL
+  type?: MarkerType
 }

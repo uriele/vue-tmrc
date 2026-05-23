@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import MyCalendar from '@/components/MyCalendar.vue';
+
 defineProps<{
   programEvents: {
     date: string;
@@ -17,6 +19,9 @@ defineProps<{
   <PageTitle mainTitle="Program" />
   <section class="main p-4">
     <h3 class="mb-3">Program at a Glance</h3>
+    <MyCalendar/>
+
+    <!--
     <table class="table p-2 table-striped table-hover">
       <thead>
         <tr>
@@ -37,7 +42,7 @@ defineProps<{
         </tr>
       </tbody>
     </table>
-
+  -->
   </section>
 </template>
 

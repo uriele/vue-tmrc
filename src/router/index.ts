@@ -4,7 +4,8 @@ import CommitteeView from '../views/CommitteeView.vue'
 import ProgramView from '../views/ProgramView.vue'
 import TravelView from '../views/TravelView.vue'
 import SpeakerNominationsView from '../views/InvitedSpeakerNominationsView.vue'
-import KeyNoteBanquetView from '../views/KeyNoteBanquetView.vue'
+import BanquetView from '../views/BanquetView.vue'
+import KeynoteSpeakersView from '@/views/KeynoteSpeakersView.vue'
 import RegistrationView from '../views/RegistrationView.vue'
 import InvitedSpeakerView from '@/views/InvitedSpeakerView.vue'
 import EntertainmentView from '@/views/EntertainmentView.vue'
@@ -47,6 +48,9 @@ const router = createRouter({
     { path: '/program/invited-speakers',
       name: 'invited-speakers',
       component: InvitedSpeakerView,
+      props: {
+        speakers: Constants.INVITEDSPEAKERS
+      },
      },
     {
       path: '/committee',
@@ -71,9 +75,9 @@ const router = createRouter({
     },
 
     {
-      path: '/program/keynote-speakers-and-banquet',
-      name: 'keynote-speakers-and-banquet',
-      component: KeyNoteBanquetView,
+      path: '/program/conference-banquet',
+      name: 'conference-banquet',
+      component: BanquetView,
       props: {
         marker: Constants.GREATHALL,
         imageSrc: Constants.GREATHALLIMAGE
@@ -174,6 +178,11 @@ const router = createRouter({
       path: '/upcoming-conferences',
       component: UpcomingConferencesView,
     },
+    {
+      name: 'keynote-speaker',
+      path: '/program/keynote-speaker',
+      component: KeynoteSpeakersView,
+    },
     // TODO: Remove this route after testing the calendar view
     {       name: 'testing-calendar',
             path: '/testing-calendar',
@@ -181,11 +190,6 @@ const router = createRouter({
             props: {
                 calLink: Constants.CALENDARDOWNLOADLINK
               }
-    },
-    {
-      name: 'testing-my-calendar',
-      path: '/testing-my-calendar',
-      component: () => import('@/views/CalendarView2.vue'),
     },
     {
       path: '/:pathMatch(.*)*',

@@ -5,7 +5,10 @@ import UCSDCarousel from '@/components/UCSDCarousel.vue'
 import SponsorThanks from '../components/SponsorThanks.vue';
 import { CORPORATESPONSORS, LOCALHOSTS,SPONSORS } from '@/router/routerConstants';
 import { useThemeMode } from '@/composables/useThemeMode';
-import { LoopScroll } from "@joyday/vue-loop-scroll";
+//import { LoopScroll } from "@joyday/vue-loop-scroll";
+import TwitterLink from '@/components/TwitterLink.vue';
+import InstagramLink from '@/components/InstagramLink.vue';
+import { computed } from 'vue'
 defineProps({
   formLink: {
     type: String,
@@ -15,14 +18,34 @@ defineProps({
     type: String,
     required: true,
   },
+  twitterLink: {
+    type: URL,
+    required: false,
+    default: new URL('https://x.com/ieeetmrc'),
+  },
+  instagramLink: {
+    type: URL,
+    required: false,
+    default: new URL('https://www.instagram.com/ieeetmrc/'),
+  },
 })
 const { isLight } = useThemeMode()
 const HomeBg = new URL('../assets/home-bg.jpg', import.meta.url)
 
-const dataSource: { id: number; value: string }[] = [{
-  id:1,value:"     Early Registration Opened for TMRC 2026                      "},
-{id:2,value:"      Deadline for Invited Speaker Acceptance is: May 15th, 2026                "},
-{id:3,value:"      Extended Deadline for Poster Submissions: May 29th, 2026                   "}];
+interface DataSourceItem {
+  id: number;
+  value: string;
+  link?: string | URL;
+}
+
+const dataSource: DataSourceItem[] = [{
+  id:1,value:"     Early Registration Opened for TMRC 2026                      ",
+  link: 'conference-registration'},
+{id:2,value:"      Extended Deadline for Poster Submissions: May 29th, 2026                   ",
+  link: 'digest-submission'
+}];
+
+const reversedSource= computed(()=> dataSource.slice().reverse())
 </script>
 
 <template>
@@ -30,17 +53,24 @@ const dataSource: { id: number; value: string }[] = [{
     mainTitle="Welcome to TMRC 2026"
     subTitle="The 37th Magnetic Recording Conference"
     superTitle="August 3rd – August 5th, 2026 | University of California, San Diego"
-    subSubtitle="Sponsored by the IEEE Magnetics Society"
+    subSubtitle="Sponsored by IEEE and the IEEE Magnetics Society"
     :bgHome="HomeBg"
   />
-  <div class="box"
-  :class="{' card-light text-secondary':isLight}"
+  <div class="box pb-1 pt-1 ps-3"
+  :class="{' card-light text-secondary':isLight, 'bg-primary text-secondary':!isLight}"
   >
-  <LoopScroll :dataSource="dataSource" direction="left" class="display-5" waitMode="item" >
-      <template #default="{ item }">
-        <span>{{ item.value }}</span>
-      </template>
-  </LoopScroll>
+  <div v-for="item in reversedSource" :key="item.id"
+  class="fs-6"
+  >
+  <!--
+  <div :dataSource="dataSource" direction="left" class="fs-3" waitMode="item">
+      <template #default="{ item }">-->
+        <RouterLink v-if="item.link" :to="item.link"
+        class="announcment-link"
+        >{{ item.value }}</RouterLink>
+        <span v-else>{{ item.value }}</span>
+      <!--</template>-->
+    </div>
   </div>
   <section class="main p-4 row">
       <!--
@@ -62,82 +92,38 @@ const dataSource: { id: number; value: string }[] = [{
       </p>
     </div>
 
-    <!-- /*
-    <div class="card border-dark bg-primary text-secondary mb-3" style="--delay: 0.35s">
-      <h3 class="card-header">Topic of Interest Include</h3>
-      <div class="card-body">
-        <h5 class="card-title">Solid State Memory – Devices and Applications</h5>
-        <ul class="card-text">
-          <li>
-            Spin Transfer Torque-Magnetic Random Access Memory (MTJ cell, MRAM chip manufacturing
-            and roadmap).
-          </li>
-          <li>
-            MRAM – New Physics & Materials (MRAM architecture, VC-MRAM, SOT-MRAM, TI & 2D
-            materials).
-          </li>
-        </ul>
-        <h5 class="card-title">Storage Architectures and Applications for AI / ML</h5>
-        <ul class="card-text">
-          <li>In-Memory and Near Memory Compute.</li>
-          <li>Advanced Memory Bus Architectures.</li>
-          <li>Neuromorphic Computing.</li>
-        </ul>
-        <h5 class="card-title">Advanced Generation Recording Technologies</h5>
-        <ul class="card-text">
-          <li>
-            Energy Assisted Magnetic Recording (HAMR, MAMR, System, Head/Media, HDI and Materials).
-          </li>
-          <li>
-            Energy Assisted Magnetic Recording (HAMR, MAMR, System, Head/Media, HDI and Materials).
-          </li>
-          <li>
-            Advanced Magnetic Recording for > 3 Tbits/in2 (Readers, Writers, Servo, Tribology, HDI,
-            Signal Processing, Recording Physics, Device Processing, Materials).
-          </li>
-        </ul>
-      </div>
-    </div>
-
-
-    <div class="main-text">
-      <p class="lead reveal" style="--delay: 0.2s">
-        To nominate an invited speaker, please complete our
-        <a :href="`${formLink}`" target="_blank" rel="noopener noreferrer"
-          >online nomination form</a
-        >
-        (preferred) or
-        <a :href="`mailto:${chairsEmail}`">email the Program Chairs directly</a>.
-      </p>
-    </div>
-
-    <div class="main-text">
-      <p class="lead reveal" style="--delay: 0.2s">
-        To submit a poster presentation, please prepare a 2-page digest using the digest template available on <router-link :to="{ name: 'digest-submission' }">the Digest Submission page</router-link>.
-        Next, submit your digest via the web form linked on the <router-link :to="{ name: 'call-for-posters' }">Call for Posters page</router-link> or contact the Poster Session Chair, <a href="mailto:mailto:simon@riec.tohoku.ac.jp">Simon Greaves</a>.
-        The deadline for poster submissions is <strong>May 29th, 2026</strong>.
-      </p>
-    </div>
-    */ -->
-
 
   </section>
   <section class="main p-4">
-  <div :class="{ 'card border-dark border-round card-light text-secondary mb-3': isLight }" style="--delay: 0.35s">
     <SponsorThanks
     :normalSponsors="SPONSORS"
     :localSponsors="LOCALHOSTS"
     :corporateSponsors="CORPORATESPONSORS" />
-  </div>
+
+
   </section>
+  <div
+  class="d-flex flex-row justify-content-center align-items-center gap-2">
+    <TwitterLink :isLight="isLight" :link="twitterLink"/>
+    <InstagramLink :link="instagramLink" />
+  </div>
 </template>
 
 <style scoped>
 .box {
   width: 100%;
-  height: 4rem;
+  height:auto;
   :deep(.scroll-loop-item) {
     padding-right: 20rem;
   }
+}
+
+a.announcment-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.announcment-link:hover {
+  text-decoration: underline;
 }
 </style>

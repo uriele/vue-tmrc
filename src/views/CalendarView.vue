@@ -9,8 +9,8 @@ interface Props{
 
 const props = withDefaults(defineProps<Props>(), {
   ctz: "America/Los_Angeles",
-  startDate: () => new Date("2026-08-03"),
-  endDate: () => new Date("2026-08-09")
+  startDate: () => new Date("2026-08-02"),
+  endDate: () => new Date("2026-08-07")
 });
 </script>
 <template>

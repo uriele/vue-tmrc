@@ -22,7 +22,7 @@ const props = defineProps({
     default: 10,
   },
   markers: {
-    type: Array<MapMarker>,
+    type: Array as () => MapMarker[],
     required: false,
   },
 })
@@ -34,7 +34,11 @@ const center = computed(() => {
   const latSum = props.markers.reduce((sum, marker) => sum + marker.position.lat, 0)
   const lngSum = props.markers.reduce((sum, marker) => sum + marker.position.lng, 0)
   return { lat: latSum / props.markers.length, lng: lngSum / props.markers.length }
-})
+}) 
+
+const linkhotel= (link: string) => {
+  return 'https://maps.app.goo.gl/' + encodeURIComponent(link)
+}
 
 </script>
 <template>
@@ -62,6 +66,20 @@ const center = computed(() => {
         For more information on directions and parking, please visit the
         <a href="https://maps.ucsd.edu/" target="_blank" rel="noopener noreferrer">UCSD Maps & Directions</a> page.
       </p>
+
+      <h2> Accomodations </h2>
+      <p class="lead">
+        Even if there is no official conference hotel, there are several hotels 
+        and accommodations available in the La Jolla area, which is a short drive from the UCSD campus.
+        We recommend booking your accommodations early to ensure availability. 
+        We suggest as possible accomodation near the conference venue the following hotels:
+      </p>
+      <ul class="lead" v-show="markers?.some(marker => marker.type === 'hotel')">
+        <li v-for="hotel in markers?.filter(marker => marker.type === 'hotel')" :key="hotel.id">
+          <a v-if="hotel.link" :href="linkhotel(hotel.link)" target="_blank" rel="noopener noreferrer">{{ hotel.name }}</a>
+          <span v-else>{{ hotel.name }}</span>
+        </li>
+      </ul>
   </MapInfo>
 
   </template>

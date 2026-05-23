@@ -24,7 +24,7 @@ const props = defineProps({
 })
 
 const isxxl = ref(false)
-
+let mycanvas: HTMLElement | null = null
 let mql: MediaQueryList | null = null
 const onMqlChange = (e: MediaQueryListEvent) => {
   isxxl.value = e.matches
@@ -47,36 +47,66 @@ const navItems = computed(() =>
 
 const isSimpleNavLink = (link: NavLink): link is SimpleNavLink => 'to' in link
 
+
 const closeOffcanvas = () => {
   if (isxxl.value) {
     return
   }
 
-  const offcanvasElement = document.getElementById('offcanvasNavbar')
-
-  if (!offcanvasElement) {
+  if (!mycanvas) {
     return
   }
 
-  const offcanvas = Offcanvas.getInstance(offcanvasElement) ?? new Offcanvas(offcanvasElement)
-  offcanvas.hide()
+  const offcanvas = Offcanvas.getInstance(mycanvas)
+  offcanvas?.hide()
 }
+
+
 
 onMounted(() => {
   mql = window.matchMedia('(min-width: 1400px)')
   isxxl.value = mql.matches
   mql.addEventListener('change', onMqlChange)
+
+  mycanvas= document.getElementById('offcanvasNavbar')
+  mycanvas?.addEventListener('hidden.bs.offcanvas', () => {
+    const offcanvasElement = document.getElementById('offcanvasNavbar')
+    if (!offcanvasElement) {
+      return
+    }
+    const offcanvas = Offcanvas.getInstance(offcanvasElement)
+    offcanvas?.hide()
+  })
 })
 
 onBeforeUnmount(() => {
   mql?.removeEventListener('change', onMqlChange)
+  mycanvas?.removeEventListener('hidden.bs.offcanvas', () => {
+    const offcanvasElement = document.getElementById('offcanvasNavbar')
+    if (!offcanvasElement) {
+      return
+    }
+    const offcanvas = Offcanvas.getInstance(offcanvasElement)
+    offcanvas?.hide()
+  })
+})
+
+
+
+const link = computed(() => {
+  if (isxxl.value) {
+    return '#'
+  } else {
+    return '/'
+  }
 })
 </script>
 
 <template>
   <nav class="navbar sticky-top navbar-expand-xxl bg-primary align-items-xxl-start">
     <div class="container-fluid flex-xxl-column align-items-xxl-start" :class="{ 'vh-100': isxxl }">
-      <a class="navbar-brand text-secondary flex-xxl-column align-items-xxl-start" href="#">
+      <a class="navbar-brand text-secondary flex-xxl-column align-items-xxl-start"
+      :href="link">
         <div :class="{ 'd-flex align-items-center': !isxxl }">
           <img
             v-if="logo"
@@ -123,8 +153,8 @@ onBeforeUnmount(() => {
               <RouterLink
                 v-if="isSimpleNavLink(item.link)"
                 class="nav-link text-light"
-                :to="item.link.to"
-                @click="closeOffcanvas"
+                  :to="item.link.to"
+                  @click="closeOffcanvas"
               >
                 {{ item.link.label }}
               </RouterLink>
@@ -146,7 +176,7 @@ onBeforeUnmount(() => {
                     <RouterLink
                       class="nav-link text-light ps-4"
                       :to="groupLink.to"
-                      @click="closeOffcanvas"
+                       @click="closeOffcanvas"
                     >
                       {{ groupLink.label }}
                     </RouterLink>
