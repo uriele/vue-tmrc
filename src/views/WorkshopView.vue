@@ -15,54 +15,41 @@ const link= computed(() => {
 </script>
 
 <template>
-  <PageTitle mainTitle="Developing Standards in Magnetics: IEEE Magnetics Society and IEEE Standards Association Workshop"
-   subTitle="Theme 2: Standardizing Spintronics and Recording"
-   subSubtitle="Chairs: Sidhant Tiwari, HRL and Dan Gopman, NIST"
+  <PageTitle mainTitle="Developing Standards in Magnetics: Standardizing Spintronics and Recording"
+   superTitle="Sunday, August 2nd, 2026 | 3:30pm - 6:30pm"
+   subTitle="Chairs: Sidhant Tiwari (HRL) and Dan Gopman (NIST)"
   />
-  <section class="main p-4">
+  <section class="main p-4 lead">
 
 
-  <h3 class="reveal" style="--delay: 0.4s">
-      <a :href="props.registrationLink"><strong>Register for the workshop here</strong></a>
-  </h3>
-  <p class="lead fw-bolder">
-       This session is offered free of charge to the magnetics community. Pre-registration is mandatory for all attendees due to limited seating capacity.   </p>
-  <p class="lead">
-    Join us for talks, networking, and light food and beverages in this workshop dedicated to establishing a shared technical vocabulary and rigorous benchmark for the next
-    generation of storage and non-volatile memory technologies. The workshop will be held on August 2nd from 3:30pm to 6:30pm at the
-    <a :href="link" target="_blank" rel="noopener noreferrer">Center for Memory and Recording Research (CMRR)</a>  on the UCSD campus, followed by the TMRC opening reception.
+  <div class="mb-4">
+    <p><strong>Location:</strong> <a :href="link" target="_blank" rel="noopener noreferrer">{{ props.marker.name }}</a></p>
+    <p><strong>Organizing Committee:</strong> <strong> Hans Nembach</strong> (NIST), 
+      <strong>Gillian Boyce</strong> (NIST), <strong>Vitaliy Lomakin</strong> (UCSD), <strong>Sidhant Tiwari</strong> (HRL) and <strong>Dan Gopman</strong> (NIST)</p>
+  </div>
+
+  <p>
+    Emerging magnetic technologies require more than just laboratory breakthroughs to achieve market adoption. To protect these innovations from skepticism and ensure "apples-to-apples" comparisons, a collective effort is necessary to establish rigorous benchmarks and a shared technical vocabulary. This is critical for moving beyond laboratory-specific metrics to reach industry-wide consensus, particularly as we define future media sanitization and MRAM immunity requirements.
+  </p>  
+
+  <p>
+    The aim of this half-day workshop, organized by the IEEE Magnetics Society and IEEE Standards Association, is to dive into ongoing measurement and standardization activities. Invited speakers from across the technical landscape will delve into reliability parameters for MRAM magnetic immunity, advance verification standards for secure data destruction in next-generation media, and discuss the standardization of MTJ sensor performance.
+  </p>
+  <p>
+    Beyond the specific technical metrics, this symposium will provide attendees with a competitive advantage by helping them shift from being "standards-takers" to "standards-shapers." It serves as a prime example of how engineers, academics, and industry enthusiasts can collaborate to accelerate the production and use of TMRC-aligned magnetic recording and memory technologies.
+  </p>
+  <p>
+    This session is offered free of charge to the magnetics community and will be followed by the TMRC opening reception. Pre-registration is mandatory for all attendees due to limited seating capacity.
   </p>
 
-
-    <div class="card border-dark bg-primary text-secondary mb-3" style="--delay: 0.35s">
-      <h3 class="card-header">Who should join us?</h3>
-      <div class="card-body">
-        <h5 class="card-title">Magnetics Enthusiasts:</h5>
-        <p class="card-text p-2">
-          Protect emerging technologies from skepticism and ensure "apples-to-apples" comparisons that drive market adoption. Our broad
-goal is to move beyond laboratory-specific metrics to industry-wide consensus.
-        </p>
-        <h5 class="card-title">Engineers:</h5>
-        <p class="card-text p-2">
-          Gain competitive advantage by shifting from a standards-taker to a
-standards-shaper. Join the discussion in verification protocols that will define
-future media sanitization and MRAM immunity requirements.
-        </p>
-        <h5 class="card-title">Academics:</h5>
-        <p class="card-text p-2">
-          Cultivate a nuanced perspective by joining expert-led discussions in
-which we delve into reliability parameters for MRAM magnetic immunity;
-advancing verification standards for secure data destruction in advanced media;
-and standardizing MTJ sensor performance.
-        </p>
-        <h5 class="card-title">TMRC 2026 attendees:</h5>
-        <p class="card-text p-2">
-          Start your TMRC experience with a dive into ongoing
-measurement and standardization activities that will accelerate production and
-use of TMRC-aligned magnetic recording and memory technologies.
-        </p>
-      </div>
-    </div>
-
+  <h3 class="reveal text-center mb-3" style="--delay: 0.4s">
+      <a :href="props.registrationLink"><strong>Register for the workshop here</strong></a>
+  </h3>
   </section>
 </template>
+
+<style scoped>
+strong {
+  font-weight: 600;
+}
+</style>
