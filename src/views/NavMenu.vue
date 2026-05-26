@@ -58,6 +58,9 @@ const closeOffcanvas = () => {
 
   // Without it the offcanvas backdrop remains and prevents interaction with the page until the transition ends
   setTimeout(() => {
+  document.body.classList.remove('modal-open')
+  document.body.style.removeProperty('overflow')
+  document.body.style.removeProperty('padding-right')
     document.querySelectorAll('.offcanvas-backdrop').forEach(el => el.remove())
   }, 300)
 }

@@ -45,7 +45,6 @@ const calendarOptions: CalendarOptions = {
     minute: '2-digit',
     hour12: true,
   },
-  height: 'auto',
 }
 
 </script>
@@ -53,3 +52,12 @@ const calendarOptions: CalendarOptions = {
 <template>
     <FullCalendar :options="calendarOptions" />
 </template>
+
+<style scoped>
+  :deep(thead tr th) {
+    background-color: var(--bs-primary) !important;
+  }
+  :deep(a) {
+    color: var(--bs-secondary) !important;
+  }
+</style>
