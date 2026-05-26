@@ -2,11 +2,14 @@
 import PageTitle from '@/components/PageTitle.vue'
 import type { MapMarker } from '@/stores/MapMarker';
 import { computed } from 'vue';
+import { type InvitedSpeaker } from '@/stores/InvitedSpeakers';
+import { useThemeMode } from '@/composables/useThemeMode';
 const props = defineProps<{
   marker: MapMarker,
   registrationLink: string,
+  speakers?: InvitedSpeaker[],
 }>()
-
+const {isLight} = useThemeMode()
 const link= computed(() => {
   const markerLink = props.marker.link
   return `https://maps.app.goo.gl/${markerLink}`
@@ -24,13 +27,13 @@ const link= computed(() => {
 
   <div class="mb-4">
     <p><strong>Location:</strong> <a :href="link" target="_blank" rel="noopener noreferrer">{{ props.marker.name }}</a></p>
-    <p><strong>Organizing Committee:</strong> <strong> Hans Nembach</strong> (NIST), 
+    <p><strong>Organizing Committee:</strong> <strong> Hans Nembach</strong> (NIST),
       <strong>Gillian Boyce</strong> (NIST), <strong>Vitaliy Lomakin</strong> (UCSD), <strong>Sidhant Tiwari</strong> (HRL) and <strong>Dan Gopman</strong> (NIST)</p>
   </div>
 
   <p>
     Emerging magnetic technologies require more than just laboratory breakthroughs to achieve market adoption. To protect these innovations from skepticism and ensure "apples-to-apples" comparisons, a collective effort is necessary to establish rigorous benchmarks and a shared technical vocabulary. This is critical for moving beyond laboratory-specific metrics to reach industry-wide consensus, particularly as we define future media sanitization and MRAM immunity requirements.
-  </p>  
+  </p>
 
   <p>
     The aim of this half-day workshop, organized by the IEEE Magnetics Society and IEEE Standards Association, is to dive into ongoing measurement and standardization activities. Invited speakers from across the technical landscape will delve into reliability parameters for MRAM magnetic immunity, advance verification standards for secure data destruction in next-generation media, and discuss the standardization of MTJ sensor performance.
@@ -46,6 +49,23 @@ const link= computed(() => {
       <a :href="props.registrationLink"><strong>Register for the workshop here</strong></a>
   </h3>
   </section>
+
+  <div v-if="props.speakers && props.speakers.length > 0"
+    class="card border-da text-secondary m-3"
+    :class="{'card-light text-secondary':isLight,' bg-primary text-secondary':!isLight}" >
+    <h3 class="card-header">Speakers</h3>
+      <div class="card-body">
+        <ul class="card-text lead gap-2">
+          <li v-for="speaker in props.speakers" :key="speaker.id"
+          class="mb-2">
+            <strong>{{ speaker.name }}</strong> ({{ speaker.affiliation }}):
+             <em>{{ speaker.title }}</em>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+
 </template>
 
 <style scoped>

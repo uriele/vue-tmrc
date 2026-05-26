@@ -22,7 +22,7 @@ const slides: Slide[] = [
     first: true,
   },
   { kind: 'image', src: new URL('../assets/ucsd/ucsd1.jpg', import.meta.url).href },
-  { kind: 'image', src: new URL('../assets/ucsd/ucsd2.jpg', import.meta.url).href },
+  //{ kind: 'image', src: new URL('../assets/ucsd/ucsd2.jpg', import.meta.url).href },
   { kind: 'image', src: new URL('../assets/ucsd/ucsd3.jpg', import.meta.url).href },
   { kind: 'image', src: new URL('../assets/ucsd/ucsd4.jpg', import.meta.url).href },
   { kind: 'image', src: new URL('../assets/ucsd/ucsd5.jpg', import.meta.url).href },
@@ -58,7 +58,7 @@ const carouselEl = ref<HTMLElement | null>(null)
         <!-- VIDEO -->
         <div
           v-else
-          class="w-100object-contain bg-black carousel-item-height d-flex justify-content-center align-items-center"
+          class="w-100 object-contain bg-black carousel-item-height d-flex justify-content-center align-items-center"
         >
           <video :src="slide.src" class="img-fluid" autoplay loop muted />
         </div>

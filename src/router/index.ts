@@ -4,9 +4,11 @@ import CommitteeView from '../views/CommitteeView.vue'
 import ProgramView from '../views/ProgramView.vue'
 import TravelView from '../views/TravelView.vue'
 import SpeakerNominationsView from '../views/InvitedSpeakerNominationsView.vue'
-import KeyNoteBanquetView from '../views/KeyNoteBanquetView.vue'
+import BanquetView from '../views/BanquetView.vue'
+import KeynoteSpeakersView from '@/views/KeynoteSpeakersView.vue'
 import RegistrationView from '../views/RegistrationView.vue'
-
+import InvitedSpeakerView from '@/views/InvitedSpeakerView.vue'
+import EntertainmentView from '@/views/EntertainmentView.vue'
 import MapInfoView from '@/views/MapInfoView.vue'
 import PosterSessionView from '@/views/PosterSessionView.vue'
 import VisaInformationView from '@/views/VisaInformationView.vue'
@@ -43,6 +45,13 @@ const router = createRouter({
         downloadLinks: Constants.FLYERLINKS
       },
     },
+    { path: '/program/invited-speakers',
+      name: 'invited-speakers',
+      component: InvitedSpeakerView,
+      props: {
+        speakers: Constants.INVITEDSPEAKERS
+      },
+     },
     {
       path: '/committee',
       name: 'committee',
@@ -52,8 +61,8 @@ const router = createRouter({
       },
     },
     {
-      path: '/program',
-      name: 'program',
+      path: '/program/program-overview',
+      name: 'program-overview',
       component: ProgramView,
       props: {
         apiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY || '',
@@ -66,9 +75,9 @@ const router = createRouter({
     },
 
     {
-      path: '/keynote-speakers-and-banquet',
-      name: 'keynote-speakers-and-banquet',
-      component: KeyNoteBanquetView,
+      path: '/program/conference-banquet',
+      name: 'conference-banquet',
+      component: BanquetView,
       props: {
         marker: Constants.GREATHALL,
         imageSrc: Constants.GREATHALLIMAGE
@@ -98,7 +107,7 @@ const router = createRouter({
     },
     {
       name: 'poster-session',
-      path: '/poster-session',
+      path: '/program/poster-session',
       component: PosterSessionView,
     },
     {
@@ -121,17 +130,30 @@ const router = createRouter({
     },
     {
       name: 'standards-in-magnetics-workshop',
-      path: '/standards-in-magnetics-workshop',
+      path: '/program/standards-in-magnetics-workshop',
       component: WorkshopView,
       props: {
         marker: Constants.CMRR,
-        registrationLink: Constants.WORKSHOPREGISTRATIONLINK
+        registrationLink: Constants.WORKSHOPREGISTRATIONLINK,
+        speakers: Constants.WORKSHOPSPEAKER
       }
+    },
+    { name: 'entertainment-at-tmrc',
+      path: '/program/entertainment-at-tmrc',
+      component: EntertainmentView,
     },
     {
       name:'neil-smith-award',
-      path: '/neil-smith-award',
+      path: '/students-awards/neil-smith-award',
       component: NeilSmithAwardView,
+    },
+
+    {    path: '/neil-smith-award',
+         redirect: {name: 'neil-smith-award'}
+    },
+    {
+         path: '/travel-grants',
+          redirect: {name: 'travel-grants'}
     },
     {
       name:'call-for-posters',
@@ -152,7 +174,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/travel-grants',
+      path: '/students-awards/travel-grants',
       name: 'travel-grants',
       component: TravelGrantView,
       props: {
@@ -164,6 +186,11 @@ const router = createRouter({
       name: 'upcoming-conferences',
       path: '/upcoming-conferences',
       component: UpcomingConferencesView,
+    },
+    {
+      name: 'keynote-speaker',
+      path: '/program/keynote-speaker',
+      component: KeynoteSpeakersView,
     },
     {
       path: '/:pathMatch(.*)*',

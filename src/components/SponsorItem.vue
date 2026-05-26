@@ -29,13 +29,13 @@ const link = computed(() => props.sponsor.website?.href || '#');
       :alt="props.sponsor.name + ' Logo'"
       class="sponsor-logo img-fluid img-thumbnail bg-white"
     />
-    <div v-else class="lead">{{ props.sponsor.name }}</div>
+    <div v-else class="lead  ms-2 ">{{ props.sponsor.name }}</div>
   </a>
 </template>
 
 <style scoped>
 .sponsor-logo {
-    max-height: 200px; /* Set desired uniform height */
-    max-width: 400px; /* Adjust width to maintain aspect ratio */
+    max-height: 120px; /* Adjust height to maintain aspect ratio */
 }
+
 </style>

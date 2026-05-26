@@ -3,8 +3,12 @@
 import PageTitle from '@/components/PageTitle.vue'
 import UCSDCarousel from '@/components/UCSDCarousel.vue'
 import SponsorThanks from '../components/SponsorThanks.vue';
-import { CORPORATESPONSORS } from '@/router/routerConstants';
-
+import { CORPORATESPONSORS, LOCALHOSTS,SPONSORS } from '@/router/routerConstants';
+import { useThemeMode } from '@/composables/useThemeMode';
+//import { LoopScroll } from "@joyday/vue-loop-scroll";
+import TwitterLink from '@/components/TwitterLink.vue';
+import InstagramLink from '@/components/InstagramLink.vue';
+import { computed } from 'vue'
 defineProps({
   formLink: {
     type: String,
@@ -14,96 +18,104 @@ defineProps({
     type: String,
     required: true,
   },
+  twitterLink: {
+    type: URL,
+    required: false,
+    default: new URL('https://x.com/ieeetmrc'),
+  },
+  instagramLink: {
+    type: URL,
+    required: false,
+    default: new URL('https://www.instagram.com/ieeetmrc/'),
+  },
 })
+const { isLight } = useThemeMode()
+const HomeBg = new URL('../assets/home-bg.jpg', import.meta.url)
+
+interface DataSourceItem {
+  id: number;
+  value: string;
+  link?: string | URL;
+}
+
+const dataSource: DataSourceItem[] = [{
+  id:1,value:"     Early Registration Opened for TMRC 2026                      ",
+  link: 'conference-registration'},
+{id:2,value:"      Extended Deadline for Poster Submissions: May 29th, 2026                   ",
+  link: 'digest-submission'
+}];
+
+const reversedSource= computed(()=> dataSource.slice().reverse())
 </script>
 
 <template>
   <PageTitle
     mainTitle="Welcome to TMRC 2026"
     subTitle="The 37th Magnetic Recording Conference"
-    subSubtitle="August 3rd – August 5th, 2026 | University of California, San Diego"
+    superTitle="August 3rd – August 5th, 2026 | University of California, San Diego"
+    subSubtitle="Sponsored by IEEE and the IEEE Magnetics Society"
+    :bgHome="HomeBg"
   />
+  <div class="box pb-1 pt-1 ps-3"
+  :class="{' card-light text-secondary':isLight, 'bg-primary text-secondary':!isLight}"
+  >
+  <div v-for="item in reversedSource" :key="item.id"
+  class="fs-6"
+  >
+        <RouterLink v-if="item.link" :to="item.link"
+        class="announcment-link"
+        >{{ item.value }}</RouterLink>
+        <span v-else>{{ item.value }}</span>
+    </div>
+  </div>
+  <section class="main p-4 row">
+    <UCSDCarousel class="col-12 col-md-6 h-100"/>
 
-  <section class="main p-4">
-    <div class="main-text">
-      <p class="eyebrow reveal" style="--delay: 0s">TMRC 2026</p>
-      <h1 class="reveal" style="--delay: 0.1s">San Diego, California.</h1>
-
-      <UCSDCarousel />
-      <SponsorThanks :corporateSponsors="CORPORATESPONSORS" />
-
+    <div class="col-12 col-md-6 h-100">
       <p class="lead reveal" style="--delay: 0.2s">
-        The 37th Magnetic Recording Conference will be held at University of California, San Diego
-        on August 3rd – August 5th, 2026. The focus of TMRC 2026 is Solid State Magnetic Memory,
-        Storage Architectures for Artificial Intelligence and Recording Technologies for >3
-        Tbits/in2.
+     The 37th Magnetic Recording Conference will be held at University of California, San Diego on <strong>August 3rd – August 5th, 2026</strong>.
+     The focus of TMRC 2026 is Solid State Magnetic Memory, Storage Architectures for Artificial Intelligence and Recording Technologies for > 4 Tbits/in2.
+     TMRC 2026 will celebrate seven decades of magnetic recording with an exciting array of 45 invited talks. These talks from members of industry and academia
+     will be followed by Bierstube and poster sessions. TMRC 2026 will contain a number of firsts: a collaborative session with the IEEE Standards Committee,
+     a pre-conference reception, dinner at the UCSD Gliderport and an opportunity to kayak in the waters of La Jolla.
       </p>
       <p class="lead reveal" style="--delay: 0.2s">
-        Approximately 36 invited papers of the highest quality will be presented orally at the
-        conference and will later be published in the IEEE Transactions on Magnetics. Poster
-        sessions will also be held following the oral sessions and will feature posters from the
-        invited speakers and accepted contributed posters. Presenters of invited & contributed
-        papers are encouraged for publication.
-      </p>
-    </div>
-
-    <div class="card border-dark bg-primary text-secondary mb-3" style="--delay: 0.35s">
-      <h3 class="card-header">Topic of Interest Include</h3>
-      <div class="card-body">
-        <h5 class="card-title">Solid State Memory – Devices and Applications</h5>
-        <ul class="card-text">
-          <li>
-            Spin Transfer Torque-Magnetic Random Access Memory (MTJ cell, MRAM chip manufacturing
-            and roadmap).
-          </li>
-          <li>
-            MRAM – New Physics & Materials (MRAM architecture, VC-MRAM, SOT-MRAM, TI & 2D
-            materials).
-          </li>
-        </ul>
-        <h5 class="card-title">Storage Architectures and Applications for AI / ML</h5>
-        <ul class="card-text">
-          <li>In-Memory and Near Memory Compute.</li>
-          <li>Advanced Memory Bus Architectures.</li>
-          <li>Neuromorphic Computing.</li>
-        </ul>
-        <h5 class="card-title">Advanced Generation Recording Technologies</h5>
-        <ul class="card-text">
-          <li>
-            Energy Assisted Magnetic Recording (HAMR, MAMR, System, Head/Media, HDI and Materials).
-          </li>
-          <li>
-            Energy Assisted Magnetic Recording (HAMR, MAMR, System, Head/Media, HDI and Materials).
-          </li>
-          <li>
-            Advanced Magnetic Recording for > 3 Tbits/in2 (Readers, Writers, Servo, Tribology, HDI,
-            Signal Processing, Recording Physics, Device Processing, Materials).
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="main-text">
-      <p class="lead reveal" style="--delay: 0.2s">
-        To nominate an invited speaker, please complete our
-        <a :href="`${formLink}`" target="_blank" rel="noopener noreferrer"
-          >online nomination form</a
-        >
-        (preferred) or
-        <a :href="`mailto:${chairsEmail}`">email the Program Chairs directly</a>.
-      </p>
-    </div>
-
-    <div class="main-text">
-      <p class="lead reveal" style="--delay: 0.2s">
-        To submit a poster presentation, please prepare a 2-page digest using the digest template available on <router-link :to="{ name: 'digest-submission' }">the Digest Submission page</router-link>.
-        Next, submit your digest via the web form linked on the <router-link :to="{ name: 'call-for-posters' }">Call for Posters page</router-link> or contact the Poster Session Chair, <a href="mailto:mailto:simon@riec.tohoku.ac.jp">Simon Greaves</a>.
-        The deadline for poster submissions is <strong>May 29th, 2026</strong>.
+        Be sure to attend the conference to be a part of exciting discussions on developments in Solid State Memories, Magnetic Recording, Alternative Data Storage Architectures and a lot more!
       </p>
     </div>
 
 
   </section>
+  <section class="main p-4">
+    <SponsorThanks
+    :normalSponsors="SPONSORS"
+    :localSponsors="LOCALHOSTS"
+    :corporateSponsors="CORPORATESPONSORS" />
+
+
+  </section>
+  <div
+  class="d-flex flex-row justify-content-center align-items-center gap-2">
+    <TwitterLink :isLight="isLight" :link="twitterLink"/>
+    <InstagramLink :link="instagramLink" />
+  </div>
 </template>
 
+<style scoped>
+.box {
+  width: 100%;
+  height:auto;
+  :deep(.scroll-loop-item) {
+    padding-right: 20rem;
+  }
+}
 
+a.announcment-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.announcment-link:hover {
+  text-decoration: underline;
+}
+</style>
