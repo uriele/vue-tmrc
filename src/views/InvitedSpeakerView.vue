@@ -70,7 +70,7 @@ const dateSections = computed(() => dates.value.map(date => {
 const {isLight} = useThemeMode()
 
 
-</script> 
+</script>
 <template>
   <PageTitle mainTitle="Invited Speakers" />
 
@@ -95,8 +95,6 @@ const {isLight} = useThemeMode()
               <th scope="col">Speaker Name</th>
               <th scope="col">Affiliation</th>
               <th scope="col">Title</th>
-              <th scope="col">ID</th>
-              <th scope="col">Length</th>
             </tr>
           </thead>
           <tbody>
@@ -107,7 +105,7 @@ const {isLight} = useThemeMode()
             />
           </tbody>
         </table>
-      </div>  
+      </div>
     </div>
   </section>
 

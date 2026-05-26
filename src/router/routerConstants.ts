@@ -167,7 +167,7 @@ const EMBASSYSUITESLAJOLLA: MapMarker  = {
   id: 'embassy-suites-la-jolla',
   name: 'Embassy Suites La Jolla',
   position: {
-    lat: 32.87616152589258, 
+    lat: 32.87616152589258,
     lng: -117.20852959468796
   },
   link: '5Ew4TuzCSHSayRTVA',
@@ -179,7 +179,7 @@ const HYATTREGENCYLAJOLLA: MapMarker  = {
   id: 'hyatt-regency-la-jolla',
   name: 'Hyatt Regency La Jolla',
   position: {
-    lat: 32.8722181595594, 
+    lat: 32.8722181595594,
     lng: -117.22445258715126
   },
   link: 'vt2s11DhVdxeQcfW8',
@@ -438,9 +438,7 @@ export const NAVLINKS: NavLinks = [
   { label: 'Visa Information', to: { name: 'visa-information' } },
   { label: 'Publication Information', to: { name: 'publication-information' } },
   { label: 'Digest Submission', to: { name: 'digest-submission' } },
-  //TODO: Remove this link after testing the calendar view
-  { label: 'Calendar View (Google)', to: { name: 'testing-calendar' } },
-  
+
 ]
 
 export const CALENDARDOWNLOADLINK: string = '9c627d6dc6604b4d7564986c937347464c7f3f1650bef57e19364687a6200da3@group.calendar.google.com'
@@ -468,7 +466,7 @@ export const INVITEDSPEAKERS: Array<InvitedSpeaker>  = [
 {groupId: 'C',paperId:2, date: Temporal.ZonedDateTime.from('2026-08-04T09:25:00-07:00[America/Los_Angeles]'), name: 'Hiroaki Sukegawa', affiliation: 'NIMS', title: 'Breaking the TMR plateau: Achieving high performance in magnetic tunnel junctions using advanced interface and barrier materials design', id: 34, len: 25},
 {groupId: 'C',paperId:3, date: Temporal.ZonedDateTime.from('2026-08-04T09:50:00-07:00[America/Los_Angeles]'), name: 'Fred Mancoff', affiliation: 'Everspin', title: 'High Reliability, 125 C Capable STT-MRAM', id: 37, len: 25},
 {groupId: 'C',paperId:4, date: Temporal.ZonedDateTime.from('2026-08-04T10:30:00-07:00[America/Los_Angeles]'), name: 'Panos Filippou', affiliation: 'IBM', title: 'Tuning Ferrimagnetic Heuslers for MRAM: Materials Driven Gains in Mn3Ge MTJ Switching and TMR', id: 39, len: 25},
-{groupId: 'C',paperId:5, date: Temporal.ZonedDateTime.from('2026-08-04T10:55:00-07:00[America/Los_Angeles]'), name: 'Goran Mihajlovic', affiliation: 'WD', title: 'Achieving low write error rates in perpendicular spin orbit torque MRAM: A micromagnetic modeling feasibility study', id: 40, len: 25}, 
+{groupId: 'C',paperId:5, date: Temporal.ZonedDateTime.from('2026-08-04T10:55:00-07:00[America/Los_Angeles]'), name: 'Goran Mihajlovic', affiliation: 'WD', title: 'Achieving low write error rates in perpendicular spin orbit torque MRAM: A micromagnetic modeling feasibility study', id: 40, len: 25},
 {groupId: 'C',paperId:6, date: Temporal.ZonedDateTime.from('2026-08-04T11:20:00-07:00[America/Los_Angeles]'), name: 'Hiroaki Yoda', affiliation: 'Yoda-S', title: 'Write Efficiency Improvement and High Potentials of SOT-MRAMs', id: 35, len: 25},
 {groupId: 'C',paperId:7, date: Temporal.ZonedDateTime.from('2026-08-04T11:45:00-07:00[America/Los_Angeles]'), name: 'Prof. Shan Wang', affiliation: 'Stanford University', title: 'RAM-Like, High Density, Field-Free 2-Terminal SOT-MRAM for Energy-Efficient AI Compute at Nanosecond Timescale', id: 45, len: 25},
 {groupId: 'D',paperId:1, date: Temporal.ZonedDateTime.from('2026-08-04T13:15:00-07:00[America/Los_Angeles]'), name: 'Jian-Ping Wang', affiliation: 'University of Minnesota', title: 'Energy-Efficient MTJ Switching via Electric Field Control', id: 36, len: 25},
@@ -497,10 +495,10 @@ export const INVITEDSPEAKERS: Array<InvitedSpeaker>  = [
 ]
 
 export const KEYNOTESPEAKER: InvitedSpeaker = {
-   name: 'Dr. Jeffrey Bokor', 
+   name: 'Dr. Jeffrey Bokor',
    affiliation: 'Space Force',
    biography: 'Mr. Nackieb (“Nick”) Kamin serves as the Technical Director Technical Director Technical Director Technical Director for Science and Technology at the Headquarters Space Force in Washington, DC. In this role, he develops long-term military requirements for the Space Force and interacts with other principals, operational commanders, combatant commands, acquisition, and international communities to address cross-organizational science and technical issues and solutions. He represents U.S. Space Force science and technology on decisions, high-level planning, and policy, building coalitions and alliances throughout the U.S. government, industry, academia, the international community, and other scientific and technology organizations. He also advises Space Force’s Chief Science Oﬃcer in space research and development strategies.',
-   title: 'Science & Technology Determines the Futures', 
+   title: 'Science & Technology Determines the Futures',
    abstract: 'Today’s science and technology investments are tomorrow’s operational superiority.The question is not whether we will innovate—it’s whether we will innovate faster than our adversaries.\nOver the past century, strategic science and technology investments have been the cornerstone of America’s space dominance. From the early 1900s, when visionary S&T funding supported pioneers like Robert Goddard in rocketry and the Wright Brothers in aeronautics, foundational breakthroughs in propulsion and materials science emerged. The Space Race of the 1960s catalyzed unprecedented S&T investment, yielding revolutionary advances in guidance systems, life support, and spacecraft design that culminated in the Apollo program and established American space leadership. Subsequent decades of sustained investment in satellite communications, Earth observation, and space-based sensing transformed global commerce and national security. The Cold War era drove innovations in resilience and autonomous systems, while post-Cold War investments shifted focus toward distributed architectures and multi-domain integration. Today’s advanced capabilities—from cislunar operations to autonomous spacecraft to space domain awareness—are the direct result of this century-long commitment to S&T. Each generation of investment built upon the discoveries of its predecessors, creating an exponential acceleration of technological advancement. The trajectory from Goddard’s early rockets to today’s sophisticated space systems demonstrates an immutable truth: sustained, strategic S&T investment is the engine of technological superiority, operational capability, and national security. The future of space power will be determined not by yesterday’s innovations, but by the S&T investments we make today.',
    id: 1,
    date: Temporal.ZonedDateTime.from('2026-08-04T19:00:00-07:00[America/Los_Angeles]'),
@@ -508,3 +506,46 @@ export const KEYNOTESPEAKER: InvitedSpeaker = {
    paperId: 1,
    photoUrl: new URL('../assets/keynote-speaker.png', import.meta.url),
 }
+
+export const WORKSHOPSPEAKER: InvitedSpeaker[] = [{
+  name: 'Sergio Montoya',
+  affiliation: 'UCSD',
+  title: 'Temperature-dependent Magnetic Properties of HAMR media and their implications on potential methods for sanitization of the recording medium',
+  id: 1,
+  groupId: 'Standards in Magnetics Workshop',
+  paperId: 1,
+  date: Temporal.ZonedDateTime.from('2026-08-05T17:00:00-07:00[America/Los_Angeles]'),
+},
+{ name: 'David Logue',
+  affiliation: 'Ontrack',
+  title: 'Proving Data Is Gone: Advancing Third-Party Erasure Verification for Next-Generation Magnetic Drives',
+  id: 2,
+  groupId: 'Standards in Magnetics Workshop',
+  paperId: 2,
+  date: Temporal.ZonedDateTime.from('2026-08-05T18:00:00-07:00[America/Los_Angeles]'),
+},
+{ name: 'Takahide Kubota',
+  affiliation: 'Tohoku University',
+  title: 'Magnetoresistance Sensors: Recent Progress and Open Questions for Standards Development',
+  id: 3,
+  groupId: 'Standards in Magnetics Workshop',
+  paperId: 3,
+  date: Temporal.ZonedDateTime.from('2026-08-05T19:00:00-07:00[America/Los_Angeles]'),
+},
+{ name: 'Alexandria Will-Cole',
+  affiliation: 'Sandia National Laboratories',
+  title: 'MRAM Magnetic Immunity: Standardization Case Study of a Critical, Emerging Technology',
+  id: 4,
+  groupId: 'Standards in Magnetics Workshop',
+  paperId: 4,
+  date: Temporal.ZonedDateTime.from('2026-08-05T20:00:00-07:00[America/Los_Angeles]'),
+},
+{ name: 'Mircea Stan',
+  affiliation: 'University of Virginia',
+  title: 'Pioneering Spintronics: Honoring the Enduring Impact of Stuart Wolf',
+  id: 5,
+  groupId: 'Standards in Magnetics Workshop',
+  paperId: 5,
+  date: Temporal.ZonedDateTime.from('2026-08-05T21:00:00-07:00[America/Los_Angeles]'),
+}
+]

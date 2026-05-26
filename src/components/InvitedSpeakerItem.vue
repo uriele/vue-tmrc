@@ -6,7 +6,7 @@ const props = defineProps<{speaker:InvitedSpeaker}>()
 const startTime = computed(() => {
   if (!props.speaker.date) return ''
   return `${props.speaker.date.hour.toString().padStart(2,'0')}:${props.speaker.date.minute.toString().padStart(2,'0')}`
-  
+
 })
 const endTime = computed(() => {
   if (!props.speaker.date || !props.speaker.len) return ''
@@ -28,7 +28,5 @@ const fullpaperId=computed(() => {
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>
           <td>{{ speaker.title }}</td>
-          <td>{{ speaker.id }}</td>
-          <td>{{ speaker.len }}</td>
         </tr>
 </template>

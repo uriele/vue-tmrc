@@ -49,16 +49,17 @@ const isSimpleNavLink = (link: NavLink): link is SimpleNavLink => 'to' in link
 
 
 const closeOffcanvas = () => {
-  if (isxxl.value) {
-    return
-  }
+  if (isxxl.value || !mycanvas) return
 
-  if (!mycanvas) {
-    return
-  }
+  const offcanvas =
+    Offcanvas.getInstance(mycanvas) ?? new Offcanvas(mycanvas)
 
-  const offcanvas = Offcanvas.getInstance(mycanvas)
-  offcanvas?.hide()
+  offcanvas.hide()
+
+  // Without it the offcanvas backdrop remains and prevents interaction with the page until the transition ends
+  setTimeout(() => {
+    document.querySelectorAll('.offcanvas-backdrop').forEach(el => el.remove())
+  }, 300)
 }
 
 
@@ -74,8 +75,6 @@ onMounted(() => {
     if (!offcanvasElement) {
       return
     }
-    const offcanvas = Offcanvas.getInstance(offcanvasElement)
-    offcanvas?.hide()
   })
 })
 
@@ -86,8 +85,6 @@ onBeforeUnmount(() => {
     if (!offcanvasElement) {
       return
     }
-    const offcanvas = Offcanvas.getInstance(offcanvasElement)
-    offcanvas?.hide()
   })
 })
 
@@ -149,7 +146,7 @@ const link = computed(() => {
         </div>
         <div class="offcanvas-body d-flex flex-column">
           <div class="navbar-nav flex-xxl-column w-100">
-            <template v-for="item in navItems" :key="item.collapseId">
+            <div v-for="item in navItems" :key="item.collapseId">
               <RouterLink
                 v-if="isSimpleNavLink(item.link)"
                 class="nav-link text-light"
@@ -183,7 +180,7 @@ const link = computed(() => {
                   </li>
                 </ul>
               </details>
-            </template>
+            </div>
           </div>
         </div>
       </div>

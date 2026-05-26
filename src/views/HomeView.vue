@@ -62,22 +62,14 @@ const reversedSource= computed(()=> dataSource.slice().reverse())
   <div v-for="item in reversedSource" :key="item.id"
   class="fs-6"
   >
-  <!--
-  <div :dataSource="dataSource" direction="left" class="fs-3" waitMode="item">
-      <template #default="{ item }">-->
         <RouterLink v-if="item.link" :to="item.link"
         class="announcment-link"
         >{{ item.value }}</RouterLink>
         <span v-else>{{ item.value }}</span>
-      <!--</template>-->
     </div>
   </div>
   <section class="main p-4 row">
-      <!--
-      <p class="eyebrow reveal" style="--delay: 0s">TMRC 2026</p>
-      <h1 class="reveal" style="--delay: 0.1s">San Diego, California.</h1>
-      -->
-      <UCSDCarousel class="col-12 col-md-6 h-100"/>
+    <UCSDCarousel class="col-12 col-md-6 h-100"/>
 
     <div class="col-12 col-md-6 h-100">
       <p class="lead reveal" style="--delay: 0.2s">

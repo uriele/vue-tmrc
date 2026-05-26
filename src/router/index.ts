@@ -134,7 +134,8 @@ const router = createRouter({
       component: WorkshopView,
       props: {
         marker: Constants.CMRR,
-        registrationLink: Constants.WORKSHOPREGISTRATIONLINK
+        registrationLink: Constants.WORKSHOPREGISTRATIONLINK,
+        speakers: Constants.WORKSHOPSPEAKER
       }
     },
     { name: 'entertainment-at-tmrc',
@@ -145,6 +146,14 @@ const router = createRouter({
       name:'neil-smith-award',
       path: '/students-awards/neil-smith-award',
       component: NeilSmithAwardView,
+    },
+
+    {    path: '/neil-smith-award',
+         redirect: {name: 'neil-smith-award'}
+    },
+    {
+         path: '/travel-grants',
+          redirect: {name: 'travel-grants'}
     },
     {
       name:'call-for-posters',
@@ -182,14 +191,6 @@ const router = createRouter({
       name: 'keynote-speaker',
       path: '/program/keynote-speaker',
       component: KeynoteSpeakersView,
-    },
-    // TODO: Remove this route after testing the calendar view
-    {       name: 'testing-calendar',
-            path: '/testing-calendar',
-            component: () => import('@/views/CalendarView.vue'),
-            props: {
-                calLink: Constants.CALENDARDOWNLOADLINK
-              }
     },
     {
       path: '/:pathMatch(.*)*',
