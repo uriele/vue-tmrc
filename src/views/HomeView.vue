@@ -56,11 +56,11 @@ const reversedSource= computed(()=> dataSource.slice().reverse())
     subSubtitle="Sponsored by IEEE and the IEEE Magnetics Society"
     :bgHome="HomeBg"
   />
-  <div class="box pb-1 pt-1 ps-3"
+  <div class="box pb-1 pt-1 ps-3 text-center"
   :class="{' card-light text-secondary':isLight, 'bg-primary text-secondary':!isLight}"
   >
   <div v-for="item in reversedSource" :key="item.id"
-  class="fs-6"
+  class="fs-4"
   >
         <RouterLink v-if="item.link" :to="item.link"
         class="announcment-link"

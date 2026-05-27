@@ -367,7 +367,7 @@ const KMITL: string = 'KMITL'
 const NIST: string = 'NIST'
 const NTU: string = 'NTU'
 const CNR: string = 'CNR-ISAC'
-
+const NISEC: string= 'NISEC'
 export const CONFERENCECHAIR: Person =   { name: 'Niranjan Natekar',
     company: WD,
     email: 'niranjan.natekar@wdc.com',
@@ -406,7 +406,15 @@ export const TREASURER: Person = { name: 'Jan-Ulrich Thiele', company: SG, email
 
 export const TECHNICALCHAIR: Person = { name: 'Marco Menarini', company: CNR, email: 'm.menarini@isac.cnr.it', role: 'Technical Chair' as RoleTypes }
 
-export const COMMITTEE: Person[] = [CONFERENCECHAIR, TREASURER, TECHNICALCHAIR, ...PROGRAMCHAIRS, ...POSTERCHAIRS, ...LOCALCHAIRS, ...PUBLICITYCHAIRS]
+
+
+export const EVENTCOORDINATOR: Person={
+  name: 'Cyndi Meeves',
+  company: NISEC,
+  email: 'cmeeves@ucsd.edu',
+  role: 'Event Coordinator' as RoleTypes
+}
+export const COMMITTEE: Person[] = [CONFERENCECHAIR, TREASURER, TECHNICALCHAIR, EVENTCOORDINATOR, ...PROGRAMCHAIRS, ...POSTERCHAIRS, ...LOCALCHAIRS, ...PUBLICITYCHAIRS]
 
 export const TRAVELGRANTAWARDEMAIL = 'tmrc2026@gmail.com'
 

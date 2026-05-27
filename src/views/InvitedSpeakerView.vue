@@ -69,29 +69,35 @@ const dateSections = computed(() => dates.value.map(date => {
 
 const {isLight} = useThemeMode()
 
+function computeDay(dateStr: string): number {
+  const conferenceStartDate = Temporal.PlainDate.from('2026-08-03')
+  const currentDate = Temporal.PlainDate.from(dateStr)
+  return currentDate.since(conferenceStartDate).total('days') + 1
+}
 
 </script>
 <template>
   <PageTitle mainTitle="Invited Speakers" />
 
   <section class="main p-4">
-    <div v-for="dateSection in dateSections" :key="dateSection.date">
+    <div v-for="dateSection in dateSections" :key="dateSection.date"
+    class="border-bottom-1 border-secondary mb-4"
+    >
       <div
       :class="{' card-light text-secondary':isLight,' bg-primary text-secondary':!isLight}" >
-        <h4 class="ms-3 mb-0"
-        >{{ Temporal.PlainDate.from(dateSection.date).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) }}</h4>
+        <h4 class="ms-3 mb-0 text-center capitalize"
+        >{{ Temporal.PlainDate.from(dateSection.date)
+        .toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) }} (Day {{computeDay(dateSection.date)}})</h4>
       </div>
       <div v-for="group in dateSection.groups" :key="`${dateSection.date}-${group.groupId}`"      >
       <div :class="{'text-secondary card-light':isLight,' bg-primary text-secondary':!isLight}" >
-        <h5 class="ms-3"
+        <h5 class="ms-3 text-center"
         >{{ group.topic }}</h5>
       </div>
         <table class="table p-2 table-striped table-hover mb-0">
           <thead>
             <tr>
-              <th scope="col">Paper ID</th>
               <th scope="col">Start</th>
-              <th scope="col">End</th>
               <th scope="col">Speaker Name</th>
               <th scope="col">Affiliation</th>
               <th scope="col">Title</th>
