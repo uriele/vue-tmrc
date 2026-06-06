@@ -22,6 +22,7 @@ import SponsorView from '@/views/SponsorView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import * as Constants from './routerConstants'
 import TravelGrantView from '@/views/TravelGrantView.vue'
+import DeadlinesView from '@/components/SortedDeadlines.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior: () => ({ top: 0 }),

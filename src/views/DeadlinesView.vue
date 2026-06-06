@@ -1,20 +1,16 @@
 <script setup lang="ts">
 import {Deadline} from "@/stores/Deadline";
+import SortedDeadlines from "@/components/SortedDeadlines.vue";
 defineProps<{
-  deadlines: Deadline[]
-}>();
+  deadlines: Deadline[],
+  order?: 'ascendent' | 'descendent',
+  showStatus?: boolean
+}>()
 </script>
 
 <template>
-  <PageTitle mainTitle="Deadlines" />
+  <PageTitle mainTitle="Important Dates" />
   <section class="main p-4">
-    <div class="main-text">
-      <h1 class="reveal" style="--delay: 0.1s">Important Dates</h1>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" v-for="deadline in deadlines" :key="deadline.name">
-          <strong>{{ deadline.name }}:</strong> {{ deadline.date }}
-        </li>
-      </ul>
-    </div>
+    <SortedDeadlines :deadlines="deadlines" :order="order" :showStatus="showStatus" />
   </section>
 </template>

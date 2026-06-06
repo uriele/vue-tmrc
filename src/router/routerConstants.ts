@@ -453,6 +453,7 @@ export const CALENDARDOWNLOADLINK: string = '9c627d6dc6604b4d7564986c937347464c7
 
 
 import { Temporal } from '@js-temporal/polyfill'
+import { Deadline } from '@/stores/Deadline'
 
 export const INVITEDSPEAKERS: Array<InvitedSpeaker>  = [
 {groupId: 'A',paperId:1, date: Temporal.ZonedDateTime.from('2026-08-03T09:00:00-07:00[America/Los_Angeles]'), name: 'Shinji Isogami', affiliation: 'NIMS', title: 'Orbital torque memories based on the nitrospinics concept', id: 3, len: 25},
@@ -556,4 +557,20 @@ export const WORKSHOPSPEAKER: InvitedSpeaker[] = [{
   paperId: 5,
   date: Temporal.ZonedDateTime.from('2026-08-05T21:00:00-07:00[America/Los_Angeles]'),
 }
+]
+
+
+export const DEADLINES: Array<Deadline> = [
+  new Deadline(Temporal.PlainDate.from('2026-02-24'), 'Invite nominations for invited speakers'),
+  new Deadline(Temporal.PlainDate.from('2026-04-17'), 'Nomination deadline for Invited Speakers'),
+  new Deadline(Temporal.PlainDate.from('2026-05-01'), 'Invitations to Invited Speakers'),
+  new Deadline(Temporal.PlainDate.from('2026-05-11'), 'Early Registration'),
+  new Deadline(Temporal.PlainDate.from('2026-05-16'), 'Acceptance for speaker invitation'),
+  new Deadline(Temporal.PlainDate.from('2026-05-29'), 'Poster Digest Submission'),
+  new Deadline(Temporal.PlainDate.from('2026-06-05'), 'Notice for Acceptance of Posters'),
+  new Deadline(Temporal.PlainDate.from('2026-06-20'), 'Early Registration Closes'),
+  new Deadline(Temporal.PlainDate.from('2026-07-05'), 'Invited Speaker digests'),
+  new Deadline(Temporal.PlainDate.from('2026-07-26'), 'Manuscript Submission Deadline'),
+  new Deadline(Temporal.PlainDate.from('2026-08-02'), 'IEEE Standards Summit Workshop'),
+  new Deadline(Temporal.PlainDate.from('2026-08-03'), 'TMRC 2026 Conference starts'),
 ]
