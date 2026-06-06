@@ -21,23 +21,25 @@ const sortedDeadlines = computed(() => sortDeadlines(props.deadlines, props.orde
 </script>
 
 <template>
-  <ul class="list-group list-group-flush">
-    <li
-      class="list-group-item d-flex align-items-center justify-content-between gap-3"
-      v-for="deadline in sortedDeadlines"
-      :key="`${deadline.date.toString()}-${deadline.description}`"
-    >
-      <slot
-        name="deadline"
-        :deadline="deadline"
-        :passed="deadline.hasPassed(props.today)"
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th v-if="showStatus">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="deadline in sortedDeadlines"
+        :key="`${deadline.date.toString()}-${deadline.description}`"
       >
-        <span>
-          <strong>{{ deadline.description }}</strong>
-          <span class="text-body-secondary ms-2">{{ deadline.date.toString() }}</span>
-        </span>
-        <DeadlineItem v-if="showStatus" :deadline="deadline" :today="today" />
-      </slot>
-    </li>
-  </ul>
-</template>
+        <th scope="row">{{ deadline.date.toString() }}</th>
+        <td>{{ deadline.description }}</td>
+        <td v-if="showStatus">
+          <DeadlineItem :deadline="deadline" :today="today" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </template>

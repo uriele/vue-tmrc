@@ -22,7 +22,8 @@ import SponsorView from '@/views/SponsorView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import * as Constants from './routerConstants'
 import TravelGrantView from '@/views/TravelGrantView.vue'
-import DeadlinesView from '@/components/SortedDeadlines.vue'
+//import DeadlinesView from '@/components/SortedDeadlines.vue'
+import DeadlinesView from '@/views/DeadlinesView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior: () => ({ top: 0 }),
@@ -192,6 +193,14 @@ const router = createRouter({
       name: 'keynote-speaker',
       path: '/program/keynote-speaker',
       component: KeynoteSpeakersView,
+    },
+    {
+      name: 'deadlines',
+      path: '/important-dates',
+      component: DeadlinesView,
+      props: {
+        deadlines: Constants.DEADLINES
+      }
     },
     {
       path: '/:pathMatch(.*)*',

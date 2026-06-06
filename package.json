@@ -35,10 +35,12 @@
     "@types/webpack-env": "^1.18.8",
     "@vueuse/core": "^14.3.0",
     "bootstrap": "5.3.7",
+    "entities": "^8.0.0",
     "pinia": "^3.0.4",
     "schedule-x": "^0.0.9",
     "temporal-polyfill": "^0.3.2",
-    "vue": "^3.5.34",
+    "volar": "^0.0.2",
+    "vue": "^3.5.35",
     "vue-router": "^4.6.4",
     "vue3-google-map": "^0.27.1"
   },

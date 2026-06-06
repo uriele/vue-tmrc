@@ -93,5 +93,6 @@ body{
 
 
 .card-light {
-  background-color: var(--bs-accent);
+  /* background-color: var(--bs-accent); */
+  background-color: var(--bs-primary);
 }

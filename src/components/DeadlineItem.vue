@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { Temporal } from '@js-temporal/polyfill'
 import { computed } from 'vue'
-import { hasDeadlinePassed, type PlainDeadline } from '@/stores/Deadline'
+import { type Deadline } from '@/stores/Deadline'
 
 const props = defineProps<{
-  deadline: PlainDeadline
+  deadline: Deadline
   today?: Temporal.PlainDate
 }>()
 
-const passed = computed(() => hasDeadlinePassed(props.deadline, props.today))
+const passed = computed(() => props.deadline.hasPassed(props.today))
 </script>
 
 <template>
