@@ -4,10 +4,13 @@ import type { MapMarker } from '@/stores/MapMarker';
 import { computed } from 'vue';
 import { type InvitedSpeaker } from '@/stores/InvitedSpeakers';
 import { useThemeMode } from '@/composables/useThemeMode';
+import SponsorItem from '@/components/SponsorItem.vue';
+import type { Sponsor } from '@/stores/Sponsor';
 const props = defineProps<{
   marker: MapMarker,
   registrationLink: string,
   speakers?: InvitedSpeaker[],
+  sponsors?: Sponsor[]
 }>()
 const {isLight} = useThemeMode()
 const link= computed(() => {
@@ -26,7 +29,15 @@ const link= computed(() => {
 
 
   <div class="mb-4">
+    <div v-if="props.sponsors && props.sponsors.length > 0" class="d-flex flex-row gap-3 mb-4">
+      <p><strong>Sponsored by:</strong></p>
+      <div class="d-flex flex-row gap-3">
+        <SponsorItem v-for="sponsor in props.sponsors" :key="sponsor.name" :sponsor="sponsor" size="medium"/>
+      </div>
+    </div>
+
     <p><strong>Location:</strong> <a :href="link" target="_blank" rel="noopener noreferrer">{{ props.marker.name }}</a></p>
+
     <p><strong>Organizing Committee:</strong> <strong> Hans Nembach</strong> (NIST),
       <strong>Gillian Boyce</strong> (NIST), <strong>Vitaliy Lomakin</strong> (UCSD), <strong>Sidhant Tiwari</strong> (HRL) and <strong>Dan Gopman</strong> (NIST)</p>
   </div>

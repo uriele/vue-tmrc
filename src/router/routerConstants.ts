@@ -575,3 +575,4 @@ export const DEADLINES: Array<Deadline> = [
   new Deadline(Temporal.PlainDate.from('2026-08-02'), 'IEEE Standards Summit Workshop'),
   new Deadline(Temporal.PlainDate.from('2026-08-03'), 'TMRC 2026 Conference starts'),
 ]
+

@@ -137,7 +137,8 @@ const router = createRouter({
       props: {
         marker: Constants.CMRR,
         registrationLink: Constants.WORKSHOPREGISTRATIONLINK,
-        speakers: Constants.WORKSHOPSPEAKER
+        speakers: Constants.WORKSHOPSPEAKER,
+        sponsors: Constants.SPONSORS,
       }
     },
     { name: 'entertainment-at-tmrc',
