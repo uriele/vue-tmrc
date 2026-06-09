@@ -39,11 +39,8 @@ interface DataSourceItem {
 }
 
 const dataSource: DataSourceItem[] = [{
-  id:1,value:"     Early Registration Opened for TMRC 2026                      ",
-  link: 'conference-registration'},
-{id:2,value:"      Extended Deadline for Poster Submissions: May 29th, 2026                   ",
-  link: 'digest-submission'
-}];
+  id:1,value:"     Early registration at lower price ends on June 30, 2026                    ",
+  link: 'conference-registration'}];
 
 const reversedSource= computed(()=> dataSource.slice().reverse())
 </script>

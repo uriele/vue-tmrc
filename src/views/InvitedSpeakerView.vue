@@ -9,7 +9,7 @@ import { type InvitedSpeaker } from '@/stores/InvitedSpeakers'
 import { useThemeMode } from '@/composables/useThemeMode';
 
 interface GroupTopic {
-  [groupId: string]: string
+  [groupId: string]: { name: string; chair: string, affiliation: string }
 }
 
 interface Props{
@@ -32,12 +32,15 @@ const props= withDefaults(defineProps<Props>()
     },
   ],
   groupTopic: () => ({
-      'A': 'Advanced Materials and Media',
-      'B': 'HAMR',
-      'C': 'MRAM (I)',
-      'D': 'MRAM (II)',
-      'E': 'AI and Neuromorphing Computing',
-      'F': 'Channels and Novel Recording Architectures',
+      'A': { name: 'Advanced Materials and Media',
+      chair: 'Andrew Kent',
+      affiliation: 'New York University'
+      },
+      'B': { name: 'HAMR', chair: 'Randy Victora', affiliation: 'University of Minnesota' },
+      'C': { name: 'MRAM (I)', chair: 'Jian-Ping Wang', affiliation: 'University of Minnesota' },
+      'D': { name: 'MRAM (II)', chair: 'Fred Mancoff', affiliation: 'Everspin Technologies' },
+      'E': { name: 'AI and Neuromorphing Computing', chair: 'Shan Wang', affiliation: 'Stanford University' },
+      'F': { name: 'Channels and Novel Recording Architectures', chair: 'Akira Kikitsu', affiliation: 'Toshiba Corporation' },
     })
 })
 
@@ -91,8 +94,10 @@ function computeDay(dateStr: string): number {
       </div>
       <div v-for="group in dateSection.groups" :key="`${dateSection.date}-${group.groupId}`"      >
       <div :class="{'text-secondary card-light':isLight,' bg-primary text-secondary':!isLight}" >
-        <h5 class="ms-3 text-center"
-        >{{ group.topic }}</h5>
+        <h5 class="text-center mb-0 pt-1"
+        >{{ group.topic?.name }}</h5>
+        <h6 class="text-center pb-1"
+        >Session Chair: {{ group.topic?.chair }} ({{ group.topic?.affiliation }})</h6>
       </div>
         <table class="table p-2 table-striped table-hover mb-0">
           <thead>
