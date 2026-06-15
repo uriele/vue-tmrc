@@ -448,7 +448,7 @@ export const NAVLINKS: NavLinks = [
   },
 
   { label: 'Standards in Magnetics Workshop', to: { name: 'standards-in-magnetics-workshop' } },
-  { group: 'Entertainment at CMRR',
+  { group: 'Entertainment at TMRC',
     links:[
       {label: 'Conference Reception', to: {name: 'conference-reception'}},
       {label: 'Dinner at the Torrey Pines Gliderport', to: {name: 'glideport'}},
@@ -611,7 +611,6 @@ export const DEADLINES: Array<Deadline> = [
   new Deadline(Temporal.PlainDate.from('2026-06-05'), 'Notice for Acceptance of Posters'),
   new Deadline(Temporal.PlainDate.from('2026-06-20'), 'Invited Speaker Digests'),
   new Deadline(Temporal.PlainDate.from('2026-06-30'), 'Early Registration Closes'),
-  new Deadline(Temporal.PlainDate.from('2026-07-05'), 'Invited Speaker digests'),
   new Deadline(Temporal.PlainDate.from('2026-07-26'), 'Manuscript Submission Deadline'),
   new Deadline(Temporal.PlainDate.from('2026-08-02'), 'IEEE Standards Summit Workshop'),
   new Deadline(Temporal.PlainDate.from('2026-08-03'), 'TMRC 2026 Conference starts'),
