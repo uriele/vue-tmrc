@@ -5,4 +5,6 @@ export interface Sponsor {
     logo?: URL,
     website?: URL,
     type: SponsorType
+    margin?: number
+
 }

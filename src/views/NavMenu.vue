@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { Offcanvas } from 'bootstrap'
+//import { Offcanvas } from 'bootstrap'
 import { RouterLink } from 'vue-router'
 import type { NavLink, NavLinks, SimpleNavLink } from '@/stores/NavLinks'
 
@@ -50,45 +50,19 @@ const isSimpleNavLink = (link: NavLink): link is SimpleNavLink => 'to' in link
 
 const closeOffcanvas = () => {
   if (isxxl.value || !mycanvas) return
-
-  const offcanvas =
-    Offcanvas.getInstance(mycanvas) ?? new Offcanvas(mycanvas)
-
-  offcanvas.hide()
-
-  // Without it the offcanvas backdrop remains and prevents interaction with the page until the transition ends
-  setTimeout(() => {
-  document.body.classList.remove('modal-open')
-  document.body.style.removeProperty('overflow')
-  document.body.style.removeProperty('padding-right')
-    document.querySelectorAll('.offcanvas-backdrop').forEach(el => el.remove())
-  }, 300)
+  mycanvas.querySelector<HTMLButtonElement>('[data-bs-dismiss="offcanvas"]')?.click()
 }
-
-
-
 onMounted(() => {
   mql = window.matchMedia('(min-width: 1400px)')
   isxxl.value = mql.matches
   mql.addEventListener('change', onMqlChange)
 
   mycanvas= document.getElementById('offcanvasNavbar')
-  mycanvas?.addEventListener('hidden.bs.offcanvas', () => {
-    const offcanvasElement = document.getElementById('offcanvasNavbar')
-    if (!offcanvasElement) {
-      return
-    }
-  })
+
 })
 
 onBeforeUnmount(() => {
   mql?.removeEventListener('change', onMqlChange)
-  mycanvas?.removeEventListener('hidden.bs.offcanvas', () => {
-    const offcanvasElement = document.getElementById('offcanvasNavbar')
-    if (!offcanvasElement) {
-      return
-    }
-  })
 })
 
 
@@ -174,7 +148,7 @@ const link = computed(() => {
                   <li  v-for="groupLink in item.link.links"
                       :key="groupLink._id ?? `${item.collapseId}-${groupLink.label}`">
                     <RouterLink
-                      class="nav-link text-light ps-4"
+                      class="nav-link text-light"
                       :to="groupLink.to"
                        @click="closeOffcanvas"
                     >

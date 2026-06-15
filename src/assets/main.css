@@ -71,13 +71,15 @@ body{
   padding: 0 !important;
   margin: 0 !important;
   background-color: var(--bs-primary) !important;
+  max-width: min(320px, calc(80vw - 32px)) !important;
+  max-height: min(70vh, 360px) !important;
 }
 
 /* Remove extra margin around content */
 .gm-style .gm-style-iw-d {
-  overflow: hidden !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  max-height: min(70vh, 360px) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
 
 /* Optional: reduce close button spacing */

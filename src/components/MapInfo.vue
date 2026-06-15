@@ -99,15 +99,16 @@ onMounted(() => {
         :options="{
           position: activeMarker.position,
           pixelOffset: { width: 0, height: -30 },
+          maxWidth: 320,
         }"
         @update:modelValue="
           (open) => {
             if (!open) activeId = null
           }
         "
-        class="bg-primary p-3 rounded vh-100"
+        class="bg-primary p-3 rounded overflow-y-auto"
       >
-        <div class="content custom-infowindow h-100 overflow-x-auto">
+        <div class="content custom-infowindow">
           <h4>{{ activeMarker.name }}</h4>
           <p>{{ activeMarker.description }}</p>
           <a :href="googleMapsLink" target="_blank" rel="noopener noreferrer" class="maps-link">
@@ -124,8 +125,36 @@ onMounted(() => {
 .custom-infowindow {
   background: var(--bs-primary);
   color: var(--bs-secondary);
+  box-sizing: border-box;
+  width: min(180px, calc(80vw - 32px));
+  max-height: min(70vh, 360px);
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 16px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow-wrap: anywhere;
+}
+
+.custom-infowindow h4 {
+  margin-right: 24px;
+}
+
+.custom-infowindow p {
+  margin-bottom: 12px;
+}
+
+.maps-link {
+  display: inline-block;
+  color: inherit;
+  font-weight: 700;
+}
+
+@media (max-width: 576px) {
+  .custom-infowindow {
+    width: min(280px, calc(100vw - 40px));
+    max-height: 60vh;
+    padding: 14px;
+  }
 }
 </style>

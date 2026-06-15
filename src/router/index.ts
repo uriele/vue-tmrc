@@ -8,7 +8,6 @@ import BanquetView from '../views/BanquetView.vue'
 import KeynoteSpeakersView from '@/views/KeynoteSpeakersView.vue'
 import RegistrationView from '../views/RegistrationView.vue'
 import InvitedSpeakerView from '@/views/InvitedSpeakerView.vue'
-import EntertainmentView from '@/views/EntertainmentView.vue'
 import MapInfoView from '@/views/MapInfoView.vue'
 import PosterSessionView from '@/views/PosterSessionView.vue'
 import VisaInformationView from '@/views/VisaInformationView.vue'
@@ -22,7 +21,11 @@ import SponsorView from '@/views/SponsorView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import * as Constants from './routerConstants'
 import TravelGrantView from '@/views/TravelGrantView.vue'
-//import DeadlinesView from '@/components/SortedDeadlines.vue'
+
+import ReceptionView from '@/views/ReceptionView.vue'
+import KayakingView from '@/views/KayakingView.vue'
+import DinnerView from '@/views/DinnerView.vue'
+
 import DeadlinesView from '@/views/DeadlinesView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -132,7 +135,7 @@ const router = createRouter({
     },
     {
       name: 'standards-in-magnetics-workshop',
-      path: '/program/standards-in-magnetics-workshop',
+      path: '/standards-in-magnetics-workshop',
       component: WorkshopView,
       props: {
         marker: Constants.CMRR,
@@ -141,10 +144,23 @@ const router = createRouter({
         sponsors: Constants.SPONSORS,
       }
     },
-    { name: 'entertainment-at-tmrc',
-      path: '/program/entertainment-at-tmrc',
-      component: EntertainmentView,
+    // Add entertainment-at-tmrc subfolders
+    { name: 'conference-reception',
+      path: '/entertainment/conference-reception',
+      component: ReceptionView,
+      props:{
+        complete:true
+      }
     },
+    { name: 'glideport',
+      path: '/entertainment/dinner',
+      component: DinnerView,
+    },
+    { name: 'kayaking',
+      path: '/entertainment/kayaking',
+      component: KayakingView,
+    },
+    //
     {
       name:'neil-smith-award',
       path: '/students-awards/neil-smith-award',

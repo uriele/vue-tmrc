@@ -347,6 +347,18 @@ export const CORPORATESPONSORS: Array<Sponsor>  = [
     logo: new URL('../assets/sponsors/tanaka-logo.webp', import.meta.url),
     website: new URL('https://tanaka-preciousmetals.com/en/'),
     type: 'bronze' as SponsorType
+  },
+  {
+    name: 'Quantum Design',
+    logo: new URL('../assets/sponsors/quantum-design.jpg', import.meta.url),
+    website: new URL('https://qdusa.com/'),
+    type: 'bronze' as SponsorType
+  },
+  {
+    name: 'Mitsubishi Gas & Chemical',
+    logo: new URL('../assets/sponsors/mitsubishi-gas-chemical.png',import.meta.url),
+    website: new URL('https://www.mgc.co.jp/eng/'),
+    type: 'bronze' as SponsorType
   }
 ]
 
@@ -432,8 +444,15 @@ export const NAVLINKS: NavLinks = [
       { label: 'Conference Banquet', to: { name: 'conference-banquet' } },
       { label: 'Keynote Speaker', to: { name: 'keynote-speaker' } },
       { label: 'Poster Session', to: { name: 'poster-session' } },
-      { label: 'Standards in Magnetics Workshop', to: { name: 'standards-in-magnetics-workshop' } },
-      { label: 'Entertainment at TMRC', to: { name: 'entertainment-at-tmrc' } },
+    ]
+  },
+
+  { label: 'Standards in Magnetics Workshop', to: { name: 'standards-in-magnetics-workshop' } },
+  { group: 'Entertainment at CMRR',
+    links:[
+      {label: 'Conference Reception', to: {name: 'conference-reception'}},
+      {label: 'Dinner at the Torrey Pines Gliderport', to: {name: 'glideport'}},
+      {label: 'Kayaking', to: {name: 'kayaking'}}
     ]
   },
   //{ label: 'Sponsors', to: { name: 'sponsors' } },
@@ -590,7 +609,8 @@ export const DEADLINES: Array<Deadline> = [
   new Deadline(Temporal.PlainDate.from('2026-05-16'), 'Acceptance for speaker invitation'),
   new Deadline(Temporal.PlainDate.from('2026-05-29'), 'Poster Digest Submission'),
   new Deadline(Temporal.PlainDate.from('2026-06-05'), 'Notice for Acceptance of Posters'),
-  new Deadline(Temporal.PlainDate.from('2026-06-20'), 'Early Registration Closes'),
+  new Deadline(Temporal.PlainDate.from('2026-06-20'), 'Invited Speaker Digests'),
+  new Deadline(Temporal.PlainDate.from('2026-06-30'), 'Early Registration Closes'),
   new Deadline(Temporal.PlainDate.from('2026-07-05'), 'Invited Speaker digests'),
   new Deadline(Temporal.PlainDate.from('2026-07-26'), 'Manuscript Submission Deadline'),
   new Deadline(Temporal.PlainDate.from('2026-08-02'), 'IEEE Standards Summit Workshop'),
