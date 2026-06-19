@@ -2,7 +2,7 @@
 import { type InvitedSpeaker } from '@/stores/InvitedSpeakers'
 //import { Temporal } from '@js-temporal/polyfill'
 import {computed} from 'vue'
-const props = defineProps<{speaker:InvitedSpeaker}>()
+const props = defineProps<{speaker:InvitedSpeaker,isPoster?:boolean}>()
 const startTime = computed(() => {
   if (!props.speaker.date) return ''
   return `${props.speaker.date.hour.toString().padStart(2,'0')}:${props.speaker.date.minute.toString().padStart(2,'0')}`
@@ -23,7 +23,12 @@ const fullpaperId=computed(() => {
 </script>
 
 <template>
-        <tr>
+        <tr v-if="props.isPoster">
+          <td>{{ speaker.title }}</td>
+          <td>{{ speaker.name }}</td>
+          <td>{{ speaker.affiliation }}</td>
+        </tr>
+        <tr v-else>
           <td>{{ startTime }}</td>
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>

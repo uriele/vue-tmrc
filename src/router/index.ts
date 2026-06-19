@@ -114,6 +114,9 @@ const router = createRouter({
       name: 'poster-session',
       path: '/program/poster-session',
       component: PosterSessionView,
+      props:{
+        speakers: Constants.POSTERPRESENTATION
+      }
     },
     {
       path: '/visa-information',
