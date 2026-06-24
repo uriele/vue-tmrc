@@ -24,11 +24,13 @@ const fullpaperId=computed(() => {
 
 <template>
         <tr v-if="props.isPoster">
+          <th scope="col">{{ speaker.groupId}}-{{speaker.paperId}}</th>
           <td>{{ speaker.title }}</td>
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>
         </tr>
         <tr v-else>
+          <th  scope="col">{{ speaker.groupId}}-{{speaker.paperId}}</th>
           <td>{{ startTime }}</td>
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>

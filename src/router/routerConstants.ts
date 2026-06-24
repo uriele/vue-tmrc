@@ -20,6 +20,21 @@ export const FLYERLINKS: DownloadLink[]  = [
   }
 ]
 
+
+export const  INSTRUCTIONSLINKS: DownloadLink[] =[
+  {
+    label: 'Submission instructions Word',
+    url: '/download/TMAG_submission_instructions.docx',
+    filename: 'TMAG_submission_instructions.docx'
+  },
+  {
+    label: 'Submission instructions PDF',
+    url: '/download/TMAG_submission_instructions.pdf',
+    filename: 'TMAG_submission_instructions.pdf'
+  }
+]
+
+
 export const CALLFORPOSTERLINK = 'https://forms.gle/CM4BbhZ5h7kVvnM1A'
 export const DOWNLOADLINKS: DownloadLink[]  = [
   {
@@ -466,6 +481,7 @@ export const NAVLINKS: NavLinks = [
   { label: 'Visa Information', to: { name: 'visa-information' } },
   { label: 'Publication Information', to: { name: 'publication-information' } },
   { label: 'Digest Submission', to: { name: 'digest-submission' } },
+  { label: 'Survey', to: {name: 'survey'}}
 
 ]
 
@@ -529,7 +545,7 @@ export const POSTERPRESENTATION: Array<InvitedSpeaker> = [
   date:Temporal.ZonedDateTime.from('2026-08-04T17:00:00-07:00[America/Los_Angeles]')},
 {id:20,groupId:'P2',paperId:7,
   title:'A dependency-aware framework for high-density storage infrastructures under dynamically varying operating conditions',
-  name:'Y.-J. Liao',affiliation:'National Tsing Hua University',
+  name:'J.-Y. Chang',affiliation:'National Tsing Hua University',
   date:Temporal.ZonedDateTime.from('2026-08-04T17:00:00-07:00[America/Los_Angeles]')},
 {id:21,groupId:'P2',paperId:8,
   title:'Low-voltage control of the magnetoelectric antiferromagnet in Pt/Cr2O3/Ru/Pt thin film utilizing the interface lattice misfit',

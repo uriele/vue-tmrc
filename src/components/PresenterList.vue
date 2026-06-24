@@ -100,11 +100,13 @@ function computeDay(dateStr: string): number {
         <table class="table p-2 table-striped table-hover mb-0">
           <thead>
             <tr v-if="props.isPoster">
+              <th scope="col">Poster Id</th>
               <th scope="col">Title</th>
               <th scope="col">Speaker Name</th>
               <th scope="col">Affiliation</th>
             </tr>
             <tr v-else>
+              <th scope="col">Paper Id</th>
               <th scope="col">Start</th>
               <th scope="col">Speaker Name</th>
               <th scope="col">Affiliation</th>

@@ -19,6 +19,7 @@ import NeilSmithAwardView from '@/views/NeilSmithAwardView.vue'
 import CallForPosterView from '@/views/CallForPosterView.vue'
 import SponsorView from '@/views/SponsorView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import SurveyView from '@/views/SurveyView.vue'
 import * as Constants from './routerConstants'
 import TravelGrantView from '@/views/TravelGrantView.vue'
 
@@ -221,6 +222,11 @@ const router = createRouter({
       props: {
         deadlines: Constants.DEADLINES
       }
+    },
+    {
+      name: 'survey',
+      path: '/survey',
+      component: SurveyView
     },
     {
       path: '/:pathMatch(.*)*',

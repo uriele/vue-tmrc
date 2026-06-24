@@ -28,7 +28,7 @@ async function downloadFile(url: string, filename: string) {
 </script>
 
 <template>
-  <button class="btn btn-primary text-secondary w-25 rounded shadow btn-sm self-center min-w-fit" @click="downloadFile(downloads.url, downloads.filename)">
+  <button class="btn btn-primary text-secondary w-25 rounded shadow btn-sm lead self-center min-w-fit" @click="downloadFile(downloads.url, downloads.filename)">
     {{ downloads.label }}
   </button>
 </template>
