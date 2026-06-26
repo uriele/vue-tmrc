@@ -25,12 +25,12 @@ export const FLYERLINKS: DownloadLink[]  = [
 export const  INSTRUCTIONSLINKS: DownloadLink[] =[
   {
     label: 'Submission instructions Word',
-    url: '/download/TMAG_submission_instructions.docx',
+    url: '/downloads/TMAG_submission_instructions.docx',
     filename: 'TMAG_submission_instructions.docx'
   },
   {
     label: 'Submission instructions PDF',
-    url: '/download/TMAG_submission_instructions.pdf',
+    url: '/downloads/TMAG_submission_instructions.pdf',
     filename: 'TMAG_submission_instructions.pdf'
   }
 ]
