@@ -2,11 +2,12 @@
 import { RouterView } from 'vue-router'
 import NavMenu from './views/NavMenu.vue'
 import { NAVLINKS } from '@/router/routerConstants'
-//import { useThemeMode } from '@/composables/useThemeMode'
+import { useThemeMode } from '@/composables/useThemeMode'
 
 const logoUrl: string = new URL('./assets/ucsd/logo.png', import.meta.url).href // Replace with actual logo URL if available
 
 //const { selectedMode, nextMode } = useThemeMode()
+useThemeMode()
 
 </script>
 
