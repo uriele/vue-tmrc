@@ -27,7 +27,7 @@ const logoUrl: string = new URL('./assets/ucsd/logo.png', import.meta.url).href 
         <NavMenu
           :navLinks="NAVLINKS"
           :conferenceTitle="'TMRC 2026'"
-          :dates="'August 3rd - 5th, 2026'"
+          :dates="'August 2nd - 5th, 2026'"
           :logo="logoUrl"
         />
       </div>
