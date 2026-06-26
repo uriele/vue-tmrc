@@ -136,6 +136,9 @@ const router = createRouter({
       name: 'publication-information',
       path: '/publication-information',
       component: PublicationInformationView,
+      props: {
+        downloads: Constants.DOWNLOADLINKS
+      },
     },
     {
       name: 'standards-in-magnetics-workshop',
