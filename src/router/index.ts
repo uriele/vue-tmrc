@@ -137,7 +137,8 @@ const router = createRouter({
       path: '/publication-information',
       component: PublicationInformationView,
       props: {
-        downloads: Constants.DOWNLOADLINKS
+        link: Constants.SURVEYLINK,
+        downloads: Constants.INSTRUCTIONSLINKS
       },
     },
     {

@@ -12,6 +12,7 @@ export const CHAIRSEMAIL = 'niranjan.natekar@wdc.com'
 export const UCSDLATLNG = { lat: 32.8801, lng: -117.234 }
 export const GREATHALLIMAGE =  new URL('../assets/ucsd/ucsd7.jpg', import.meta.url).href
 export const WORKSHOPREGISTRATIONLINK = 'https://forms.gle/PKmL21a9bnXeiYzA8'
+export const SURVEYLINK: URL = new URL('https://ieee.atyponrex.com/journal/magconf-ieee')
 export const FLYERLINKS: DownloadLink[]  = [
   {
     label: 'Extended Call for Nominations',
