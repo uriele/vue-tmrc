@@ -8,7 +8,7 @@ import PageTitle from '@/components/PageTitle.vue';
   />
   <section class="main p-4 lead">
     <p>
-      The Bierstube will be held at <a href="https://atkinson.ucsd.edu/" target="_blank" rel="noopener noreferrer">Atkinson Hall</a> at the Atkinson Hall during the poster session on Monday, June 2nd, and Tuesday, June 3rd, <strong>5:00-6:30pm</strong>.
+      The Bierstube will be held at <a href="https://atkinson.ucsd.edu/" target="_blank" rel="noopener noreferrer">Atkinson Hall</a> at the Atkinson Hall during the poster session on Monday, June 3rd, and Tuesday, June 4rd, <strong>5:00-6:30pm</strong>.
       The bar will be open to all TMRC attendees.Beer, wine, and soft drinks will be served.
     </p>
   </section>
