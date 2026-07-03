@@ -21,6 +21,11 @@ export const FLYERLINKS: DownloadLink[]  = [
   }
 ]
 
+export const DIGESTLINK: DownloadLink = {
+  label: 'TMRC 2026 Digest Book',
+  url: '/downloads/TMRC_2026_Digest_Book.pdf',
+  filename: 'TMRC_2026_Digest_Book.pdf'
+}
 
 export const  INSTRUCTIONSLINKS: DownloadLink[] =[
   {
@@ -449,6 +454,7 @@ export const TRAVELGRANTAWARDEMAIL = 'tmrc2026@gmail.com'
 export const NAVLINKS: NavLinks = [
   { label: 'Home', to: { name: 'home' } },
   { label: 'Committee', to: { name: 'committee' } },
+  { label: 'Digest Book', to: { name: 'digest-book' } },
   //{ label: 'Invited Speaker Nominations', to: { name: 'invited-speaker-nominations' } },
   { label: 'Call for Posters', to: { name: 'call-for-posters' } },
   { label: 'Registration', to: { name: 'conference-registration' } },

@@ -22,6 +22,7 @@ import NotFoundView from '@/views/NotFoundView.vue'
 import SurveyView from '@/views/SurveyView.vue'
 import * as Constants from './routerConstants'
 import TravelGrantView from '@/views/TravelGrantView.vue'
+import DigestBookView from '@/views/DigestBookView.vue'
 
 import BeerView from '@/views/BeerView.vue'
 import ReceptionView from '@/views/ReceptionView.vue'
@@ -232,6 +233,13 @@ const router = createRouter({
       name: 'bierstube',
       path: '/entertainment/bierstube',
       component: BeerView,
+    },
+    { name: 'digest-book',
+      path: '/digest-book',
+      component: DigestBookView,
+      props: {
+        download: Constants.DIGESTLINK
+      },
     },
     {
       name: 'survey',

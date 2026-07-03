@@ -31,6 +31,7 @@
     "@schedule-x/calendar": "^4.5.0",
     "@schedule-x/theme-default": "^4.5.0",
     "@schedule-x/vue": "^4.1.0",
+    "@tato30/vue-pdf": "^2.1.0",
     "@types/bootstrap": "^5.2.10",
     "@types/webpack-env": "^1.18.8",
     "@vueuse/core": "^14.3.0",
