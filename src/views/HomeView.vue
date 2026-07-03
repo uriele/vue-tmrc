@@ -50,7 +50,7 @@ const reversedSource= computed(()=> dataSource.slice().reverse())
     mainTitle="Welcome to TMRC 2026"
     subTitle="The 37th Magnetic Recording Conference"
     superTitle="August 2nd – August 5th, 2026 | University of California, San Diego"
-    subSubtitle="Sponsored by IEEE and the IEEE Magnetics Society"
+    subSubTitle="Sponsored by IEEE and the IEEE Magnetics Society"
     :bgHome="HomeBg"
   />
   <div class="box pb-1 pt-1 ps-3 text-center"
@@ -70,7 +70,7 @@ const reversedSource= computed(()=> dataSource.slice().reverse())
 
     <div class="col-12 col-md-6 h-100">
       <p class="lead reveal" style="--delay: 0.2s">
-     The 37th Magnetic Recording Conference will be held at University of California, San Diego on <strong>August  – August 5th, 2026</strong>.
+     The 37th Magnetic Recording Conference will be held at University of California, San Diego from <strong>August 2nd to August 5th, 2026</strong>.
      The focus of TMRC 2026 is Solid State Magnetic Memory, Storage Architectures for Artificial Intelligence and Recording Technologies for > 4 Tbits/in2.
      TMRC 2026 will celebrate seven decades of magnetic recording with an exciting array of 45 invited talks. These talks from members of industry and academia
      will be followed by Bierstube and poster sessions. TMRC 2026 will contain a number of firsts: a collaborative session with the IEEE Standards Committee,
@@ -114,5 +114,9 @@ a.announcment-link {
 
 a.announcment-link:hover {
   text-decoration: underline;
+}
+
+strong {
+  font-weight: bold !important;
 }
 </style>

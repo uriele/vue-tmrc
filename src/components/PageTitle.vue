@@ -9,7 +9,7 @@ const props=defineProps({
     type: String,
     required: false,
   },
-  subSubtitle: {
+  subSubTitle: {
     type: String,
     required: false,
   },
@@ -27,7 +27,7 @@ const hasCustomBG = computed(() => Boolean(backgroundSrc.value))
 </script>
 
 <template>
-  <div class="w-100 header-inner bg-primary text-center text-secondary py-5 " :class="{ 'has-image': hasCustomBG,'mb-4':!hasCustomBG }">
+  <div class="w-100 header-inner bg-primary text-center text-secondary py-3 " :class="{ 'has-image': hasCustomBG,'mb-4':!hasCustomBG }">
     <div
       v-if="hasCustomBG"
       class="header-media"
@@ -37,8 +37,8 @@ const hasCustomBG = computed(() => Boolean(backgroundSrc.value))
     <div class="header-content">
       <h4 v-if="superTitle" class="h6 text-uppercase align-self-start mb-3">{{ superTitle }}</h4>
       <h1 class="display-4">{{ mainTitle }}</h1>
-      <h2 v-if="subTitle" class="h3 text-white">{{ subTitle }}</h2>
-      <h3 v-if="subSubtitle" class="h5 text-white fst-italic">{{ subSubtitle }}</h3>
+      <h2 v-if="subTitle" class="h3 text-white pt-2">{{ subTitle }}</h2>
+      <h3 v-if="subSubTitle" class="h5 text-white fst-italic pt-2 pb-0">{{ subSubTitle }}</h3>
     </div>
   </div>
 </template>

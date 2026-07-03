@@ -20,7 +20,15 @@ const props=withDefaults(defineProps<{sections?:Section[],complete?:boolean}>(),
 </script>
 
 <template>
-  <PageTitle mainTitle="Conference Reception" />
+  <PageTitle mainTitle="Reception" superTitle="June 2nd | Center for Memory and Recording"
+  subSubTitle="6:30-9:30pm"/>
+    <section class="main p-4 lead">
+      <p> The reception will be held at the <a href="https://cmrr.ucsd.edu/" target="_blank" rel="noopener noreferrer">Center for Memory and Recording Research (CMRR)</a> at UC San Diego on Sunday, June 2nd at <strong>6:30-9:30pm</strong>.
+      The reception will be held concurrently with a CMRR celebration event held at CMRR at 7:00-8:30pm.
+      The reception will be open to all TMRC 2026 attendees and their guests. The reception will include a light dinner, drinks, and a chance to meet with the CMRR faculty and students.
+      </p>
+
+    </section>
     <section class="main p-4 lead" v-for="section in props.sections" :key="section.title">
       <h2>{{section.title}} </h2>
       <img v-if="section.image" :src="section.image.href" class="vw-100 h-auto">
@@ -30,3 +38,10 @@ const props=withDefaults(defineProps<{sections?:Section[],complete?:boolean}>(),
     <p> More details for the reception will be added soon </p>
     </section>
 </template>
+
+
+<style scoped>
+  strong {
+    font-weight: bold !important;
+  }
+</style>

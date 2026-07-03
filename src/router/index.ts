@@ -23,6 +23,7 @@ import SurveyView from '@/views/SurveyView.vue'
 import * as Constants from './routerConstants'
 import TravelGrantView from '@/views/TravelGrantView.vue'
 
+import BeerView from '@/views/BeerView.vue'
 import ReceptionView from '@/views/ReceptionView.vue'
 import KayakingView from '@/views/KayakingView.vue'
 import DinnerView from '@/views/DinnerView.vue'
@@ -226,6 +227,11 @@ const router = createRouter({
       props: {
         deadlines: Constants.DEADLINES
       }
+    },
+    {
+      name: 'bierstube',
+      path: '/entertainment/bierstube',
+      component: BeerView,
     },
     {
       name: 'survey',

@@ -466,8 +466,9 @@ export const NAVLINKS: NavLinks = [
   { label: 'Standards in Magnetics Workshop', to: { name: 'standards-in-magnetics-workshop' } },
   { group: 'Entertainment at TMRC',
     links:[
-      {label: 'Conference Reception', to: {name: 'conference-reception'}},
-      {label: 'Dinner at the Torrey Pines Gliderport', to: {name: 'glideport'}},
+      {label: 'Reception', to: {name: 'conference-reception'}},
+      {label: 'Dinner Party', to: {name: 'glideport'}},
+      {label: 'Bierstube', to: {name: 'bierstube'}},
       {label: 'Kayaking', to: {name: 'kayaking'}}
     ]
   },
