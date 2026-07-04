@@ -7,13 +7,13 @@ const props = withDefaults(defineProps<{link?: URL, image?:URL}>(), {
 })
 </script>
 <template>
-  <PageTitle mainTitle="Dinner Party" superTitle="June 3rd | Torrey Pines Gliderport"
+  <PageTitle mainTitle="Dinner Party" superTitle="August 3rd | Torrey Pines Gliderport"
   subSubTitle="7:00-10:00pm"
   />
 
   <section class="main p-4 lead">
     <p>
-      Dinner party will be held at <a :href="props.link.href" target="_blank" rel="noopener noreferrer">Torrey Pines Gliderport</a> on Monday, June 3 at <strong>7:00-10:00pm</strong>. Glideport is around 30-40 minute walk from the conference location.
+      Dinner party will be held at <a :href="props.link.href" target="_blank" rel="noopener noreferrer">Torrey Pines Gliderport</a> on Monday, August 3 at <strong>7:00-10:00pm</strong>. Glideport is around 30-40 minute walk from the conference location.
     </p>
   </section>
   <section class="main p-4 lead row">

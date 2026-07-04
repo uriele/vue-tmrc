@@ -6,14 +6,14 @@ const props = withDefaults(defineProps<{link?: URL}>(), {
 
 <template>
 
-  <PageTitle mainTitle="Kayaking" superTitle="June 5th | La Jolla Shores"
+  <PageTitle mainTitle="Kayaking" superTitle="August 5th | La Jolla Shores"
   subSubTitle="4:30-7:30pm"
   />
 
   <section class="main p-4 lead">
     <p>
       Kayaking will be held in <a href="https://www.californiabeaches.com/beach/la-jolla-shores-beach/" target="_blank" rel="noopener noreferrer">La Jolla Shores beach</a>
-      on Wednesday, June 5 at <strong>4:30-7:30pm</strong>.
+      on Wednesday, August 5 at <strong>4:30-7:30pm</strong>.
       Enjoy a two-hour guided kayaking tour at an approximate cost of $90.
       Shuttles will be provided to and from the conference to the kayaking location. Please register in this link.
       Please register <a :href="props.link.href" target="_blank" rel="noopener noreferrer">here</a>
