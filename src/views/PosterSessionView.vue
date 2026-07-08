@@ -15,8 +15,14 @@ const props= withDefaults(defineProps<Props>()
 ,{
   groupTopic: () => ({
       'P1': { name: 'Also includes posters from the invited talks of Sessions A, B, and E',
+      chair: 'Simon Greaves',
+      affiliation: 'Tohoku University'
       },
-      'P2': { name: 'Also includes posters from the invited talks of Sessions C, D, and F'},
+      'P2': { name: 'Also includes posters from the invited talks of Sessions C, D, and F',
+      chair: 'Masahiko Nakayama',
+      affiliation: 'Kioxia'
+
+      },
     }),
     isPoster:true
 })
