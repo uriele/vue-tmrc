@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import DigestFileLink from '@/components/DigestFileLink.vue'
 import { type InvitedSpeaker } from '@/stores/InvitedSpeakers'
 //import { Temporal } from '@js-temporal/polyfill'
 import {computed} from 'vue'
@@ -9,17 +10,13 @@ const startTime = computed(() => {
 
 })
 
-/*
-const endTime = computed(() => {
-  if (!props.speaker.date || !props.speaker.len) return ''
-  const endDate = Temporal.ZonedDateTime.from(props.speaker.date).add({ minutes: props.speaker.len })
-  return `${endDate.hour.toString().padStart(2,'0')}:${endDate.minute.toString().padStart(2,'0')}`
+const digestFileStem = computed(() => {
+  const groupId = props.speaker.groupId?.toUpperCase() ?? ''
+  const separator = groupId.startsWith('P') ? '-' : ''
+
+  return `${groupId}${separator}${props.speaker.paperId ?? ''}`
 })
 
-const fullpaperId=computed(() => {
-  return `${props.speaker.groupId?.toUpperCase() ?? ''}${props.speaker.paperId ?? ''}`
-})
-*/
 </script>
 
 <template>
@@ -28,6 +25,7 @@ const fullpaperId=computed(() => {
           <td>{{ speaker.title }}</td>
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>
+          <td><DigestFileLink :file-stem="digestFileStem" /></td>
         </tr>
         <tr v-else>
           <th  scope="col">{{ speaker.groupId}}-{{speaker.paperId}}</th>
@@ -35,5 +33,6 @@ const fullpaperId=computed(() => {
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>
           <td>{{ speaker.title }}</td>
+          <td><DigestFileLink :file-stem="digestFileStem" /></td>
         </tr>
 </template>

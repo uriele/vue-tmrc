@@ -104,6 +104,7 @@ function computeDay(dateStr: string): number {
               <th scope="col">Title</th>
               <th scope="col">Speaker Name</th>
               <th scope="col">Affiliation</th>
+              <th scope="col">Digest</th>
             </tr>
             <tr v-else>
               <th scope="col">Paper Id</th>
@@ -111,6 +112,7 @@ function computeDay(dateStr: string): number {
               <th scope="col">Speaker Name</th>
               <th scope="col">Affiliation</th>
               <th scope="col">Title</th>
+              <th scope="col">Digest</th>
             </tr>
           </thead>
           <tbody>
