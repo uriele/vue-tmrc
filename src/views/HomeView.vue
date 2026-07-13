@@ -38,9 +38,11 @@ interface DataSourceItem {
   link?: string | URL;
 }
 
-const dataSource: DataSourceItem[] = [{
-  id:1,value:"    Registration is now open. Please reserve your spot at the conference                    ",
-  link: 'conference-registration'}];
+const dataSource: DataSourceItem[] = [
+  {
+  id:1,value:"Please register ASAP to reserve your spot at the conference. We are reaching capacity, and conference registration may be paused soon.",
+  link: 'conference-registration'},
+];
 
 const reversedSource= computed(()=> dataSource.slice().reverse())
 </script>
