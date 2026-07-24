@@ -12,6 +12,11 @@ const props = withDefaults(defineProps<{link?: URL}>(), {
 
   <section class="main p-4 lead">
     <p>
+      <strong> This event has been canceled due to low confirmed registration count </strong>
+    </p>
+  </section>
+  <section class="main p-4 lead">
+    <p>
       Kayaking will be held in <a href="https://www.californiabeaches.com/beach/la-jolla-shores-beach/" target="_blank" rel="noopener noreferrer">La Jolla Shores beach</a>
       on Wednesday, August 5 at <strong>4:30-7:30pm</strong>.
       Enjoy a two-hour guided kayaking tour at an approximate cost of $90.

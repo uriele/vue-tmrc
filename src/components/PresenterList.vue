@@ -14,6 +14,9 @@ interface Props{
   speakers: InvitedSpeaker[]
   groupTopic: GroupTopic
   isPoster?: boolean
+  noId?: boolean
+  noDigest?: boolean
+  noDay?:boolean
 }
 
 interface TimeFrame {
@@ -99,20 +102,14 @@ function computeDay(dateStr: string): number {
       </div>
         <table class="table p-2 table-striped table-hover mb-0">
           <thead>
-            <tr v-if="props.isPoster">
-              <th scope="col">Poster Id</th>
+            <tr>
+              <th v-if="props.isPoster && !props.noId" scope="col">Poster Id</th>
+              <th v-if="!props.isPoster && !props.noId" scope="col">Paper Id</th>
+              <th v-if="!props.isPoster" scope="col">Start</th>
               <th scope="col">Title</th>
               <th scope="col">Speaker Name</th>
               <th scope="col">Affiliation</th>
-              <th scope="col">Digest</th>
-            </tr>
-            <tr v-else>
-              <th scope="col">Paper Id</th>
-              <th scope="col">Start</th>
-              <th scope="col">Speaker Name</th>
-              <th scope="col">Affiliation</th>
-              <th scope="col">Title</th>
-              <th scope="col">Digest</th>
+              <th v-if="!props.noDigest" scope="col">Digest</th>
             </tr>
           </thead>
           <tbody>
@@ -121,6 +118,8 @@ function computeDay(dateStr: string): number {
             :key="speaker.id"
             :speaker="speaker"
             :isPoster="props.isPoster"
+            :noId="props.noId"
+            :noDigest="props.noDigest"
             />
           </tbody>
         </table>

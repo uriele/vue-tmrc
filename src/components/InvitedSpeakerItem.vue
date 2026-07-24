@@ -3,7 +3,7 @@ import DigestFileLink from '@/components/DigestFileLink.vue'
 import { type InvitedSpeaker } from '@/stores/InvitedSpeakers'
 //import { Temporal } from '@js-temporal/polyfill'
 import {computed} from 'vue'
-const props = defineProps<{speaker:InvitedSpeaker,isPoster?:boolean}>()
+const props = defineProps<{speaker:InvitedSpeaker,isPoster?:boolean,noId?:boolean,noDigest?:boolean}>()
 const startTime = computed(() => {
   if (!props.speaker.date) return ''
   return `${props.speaker.date.hour.toString().padStart(2,'0')}:${props.speaker.date.minute.toString().padStart(2,'0')}`
@@ -21,18 +21,18 @@ const digestFileStem = computed(() => {
 
 <template>
         <tr v-if="props.isPoster">
-          <th scope="col">{{ speaker.groupId}}-{{speaker.paperId}}</th>
+          <th v-if="!props.noId" scope="col">{{ speaker.groupId}}-{{speaker.paperId}}</th>
           <td>{{ speaker.title }}</td>
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>
-          <td><DigestFileLink :file-stem="digestFileStem" /></td>
+          <td v-if="!props.noDigest"><DigestFileLink :file-stem="digestFileStem" /></td>
         </tr>
         <tr v-else>
-          <th  scope="col">{{ speaker.groupId}}-{{speaker.paperId}}</th>
+          <th v-if="!props.noId" scope="col">{{ speaker.groupId}}-{{speaker.paperId}}</th>
           <td>{{ startTime }}</td>
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>
           <td>{{ speaker.title }}</td>
-          <td><DigestFileLink :file-stem="digestFileStem" /></td>
+          <td v-if="!props.noDigest"><DigestFileLink :file-stem="digestFileStem" /></td>
         </tr>
 </template>

@@ -12,7 +12,10 @@ const props= withDefaults(defineProps<Props>(), {
 
 <template>
   <PageTitle mainTitle="Keynote Speaker" />
-  <section class="main p-4">
+  <section class="main p-4 lead">
+    <p>Keynote speech will take place at Atkinson Hall Auditorium on August 4 at 4.50pm post conclusion of oral presentations</p>
+  </section>
+  <section class="main p-4 lead">
     <div class="d-flex flex-row gap-4">
        <img :src="props.keynoteSpeaker.photoUrl.href" alt="Keynote Speaker Photo" class="img-fluid rounded img-thumbnail" v-if="props.keynoteSpeaker.photoUrl"/>
         <p v-if="props.keynoteSpeaker.biography" class="paragraph">{{ props.keynoteSpeaker.biography }}</p>

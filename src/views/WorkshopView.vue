@@ -3,16 +3,29 @@ import PageTitle from '@/components/PageTitle.vue'
 import type { MapMarker } from '@/stores/MapMarker';
 import { computed } from 'vue';
 import { type InvitedSpeaker } from '@/stores/InvitedSpeakers';
-import { useThemeMode } from '@/composables/useThemeMode';
 import SponsorItem from '@/components/SponsorItem.vue';
 import type { Sponsor } from '@/stores/Sponsor';
+import PresenterList from '@/components/PresenterList.vue';
+
+
 const props = defineProps<{
   marker: MapMarker,
   registrationLink: string,
   speakers?: InvitedSpeaker[],
   sponsors?: Sponsor[]
 }>()
-const {isLight} = useThemeMode()
+
+interface GroupTopic {
+  [groupId: string]: { name: string; chair: string, affiliation: string }
+}
+
+const groupTopic: GroupTopic = {
+    'S': { name: 'Standards in Magnetics Workshop',
+    chair: 'Andrew Kent',
+    affiliation: 'New York University'}
+};
+
+
 const link= computed(() => {
   const markerLink = props.marker.link
   return `https://maps.app.goo.gl/${markerLink}`
@@ -61,6 +74,16 @@ const link= computed(() => {
   </h3>
   </section>
 
+  <section  class="main p-4 lead">
+    
+  <PresenterList v-if="props.speakers" :speakers="props.speakers" :groupTopic="groupTopic" :noId="true" 
+  :noDigest="true"
+  :noDay="true"
+  />
+  </section>
+
+
+  <!--
   <div v-if="props.speakers && props.speakers.length > 0"
     class="card border-da text-secondary m-3"
     :class="{'card-light text-secondary':isLight,' bg-primary text-secondary':!isLight}" >
@@ -76,7 +99,7 @@ const link= computed(() => {
       </div>
   </div>
 
-
+-->
 </template>
 
 <style scoped>
