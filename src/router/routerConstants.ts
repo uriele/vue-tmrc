@@ -228,11 +228,15 @@ const hotels: MapMarker[] = [
   RESIDENCEINNLAJOLLA
 ]
 
-export const MARKERS: Array<MapMarker>  = [
+export const MARKERSONLYCONFERENCE: Array<MapMarker> = [
   ATKINSONHALL,
   CMRR,
-  TORREYPINESGLIDERPORT,
   GREATHALL,
+]
+
+export const MARKERS: Array<MapMarker>  = [
+  ...MARKERSONLYCONFERENCE,
+  TORREYPINESGLIDERPORT,
   KAYAKERS,
   {
     id: '3',
@@ -480,6 +484,7 @@ export const NAVLINKS: NavLinks = [
   },
   //{ label: 'Sponsors', to: { name: 'sponsors' } },
   { label: 'Conference Location and Directions', to: { name: 'conference-location-and-directions' } },
+  { label: 'Parking and Accomodations', to: { name: 'parking-and-accommodations' } },
   { group: 'Students Awards',
     links: [
       { label: 'Neil Smith Award', to: { name: 'neil-smith-award' } },
@@ -669,7 +674,7 @@ export const KEYNOTESPEAKER: InvitedSpeaker = {
 
 export const WORKSHOPSPEAKER: InvitedSpeaker[] = [
   {
-    name: 'Daniel Gopman',
+    name: 'Sidhant Tiwari',
     affiliation: 'NIST',
     title: 'Opening speech',
     id:-1,
@@ -711,7 +716,7 @@ export const WORKSHOPSPEAKER: InvitedSpeaker[] = [
   paperId: 3,
   date: Temporal.ZonedDateTime.from('2026-08-02T16:35:00-07:00[America/Los_Angeles]'),
 },
-{ name: 'Alexandria Will-Cole',
+{ name: 'Daniel Gopman',
   affiliation: 'Sandia National Laboratories',
   title: 'MRAM Magnetic Immunity: Standardization Case Study of a Critical, Emerging Technology',
   id: 4,

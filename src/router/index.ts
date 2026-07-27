@@ -9,6 +9,7 @@ import KeynoteSpeakersView from '@/views/KeynoteSpeakersView.vue'
 import RegistrationView from '../views/RegistrationView.vue'
 import InvitedSpeakerView from '@/views/InvitedSpeakerView.vue'
 import MapInfoView from '@/views/MapInfoView.vue'
+import ParkingAccomodationView from '@/views/ParkingAccomodationView.vue'
 import PosterSessionView from '@/views/PosterSessionView.vue'
 import VisaInformationView from '@/views/VisaInformationView.vue'
 import DigestSubmissionView from '@/views/DigestSubmission.vue'
@@ -100,9 +101,22 @@ const router = createRouter({
         mapID: import.meta.env.VITE_GOOGLE_MAP_ID || '',
         center: Constants.UCSDLATLNG,
         zoom: 14,
+        markers: Constants.MARKERSONLYCONFERENCE
+      },
+    },
+    {
+      path: '/parking-and-accommodations',
+      name: 'parking-and-accommodations',
+      component: ParkingAccomodationView,
+      props: {
+        apiKey: import.meta.env.VITE_GOOGLE_MAP_API_KEY || '',
+        mapID: import.meta.env.VITE_GOOGLE_MAP_ID || '',
+        center: Constants.UCSDLATLNG,
+        zoom: 14,
         markers: Constants.MARKERS
       },
     },
+
     {
       path: '/conference-registration',
       name: 'conference-registration',
