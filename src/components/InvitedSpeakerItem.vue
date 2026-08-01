@@ -30,9 +30,9 @@ const digestFileStem = computed(() => {
         <tr v-else>
           <th v-if="!props.noId" scope="col">{{ speaker.groupId}}-{{speaker.paperId}}</th>
           <td>{{ startTime }}</td>
+          <td>{{ speaker.title }}</td>
           <td>{{ speaker.name }}</td>
           <td>{{ speaker.affiliation }}</td>
-          <td>{{ speaker.title }}</td>
           <td v-if="!props.noDigest"><DigestFileLink :file-stem="digestFileStem" /></td>
         </tr>
 </template>
