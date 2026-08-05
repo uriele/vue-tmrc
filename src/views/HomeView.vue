@@ -90,7 +90,7 @@ const reversedSource= computed(()=> dataSource.slice().reverse())
     </a>
 
     <RouterLink
-        v-else="item.link"
+        v-else-if="item.link"
         :to="item.link"
         class="announcment-link"
       >
