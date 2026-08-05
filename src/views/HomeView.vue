@@ -31,7 +31,7 @@ defineProps({
 })
 const { isLight } = useThemeMode()
 const HomeBg = new URL('../assets/home-bg.jpg', import.meta.url)
-
+const survey= new URL('https://www.surveymonkey.com/r/99QFVL3')
 interface DataSourceItem {
   id: number;
   value: string;
@@ -68,6 +68,9 @@ const reversedSource= computed(()=> dataSource.slice().reverse())
     </div>
   </div>
   <section class="main p-4 row">
+    <p>
+      Please fill out the TMRC survey <a :href="survey.href" target="_blank" rel="noopener noreferrer">here</a>
+    </p>
     <UCSDCarousel class="col-12 col-md-6 h-100"/>
 
     <div class="col-12 col-md-6 h-100">
