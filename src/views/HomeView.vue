@@ -48,7 +48,8 @@ const dataSource: DataSourceItem[] = [
   link: 'conference-registration'},
 ];
 */
-function isExternalUrl(link: string | URL): boolean {
+function isExternalUrl(link?: string | URL): boolean {
+  if (!link) {return false}
   if (link instanceof URL) {
     return true;
   }
@@ -56,7 +57,8 @@ function isExternalUrl(link: string | URL): boolean {
   return /^(https?:)?\/\//i.test(link);
 }
 
-function getHref(link: string | URL): string {
+function getHref(link?: string | URL): string {
+  if (!link) {return ''}
   return link instanceof URL ? link.href : link;
 }
   
