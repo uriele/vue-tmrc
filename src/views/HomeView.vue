@@ -39,11 +39,27 @@ interface DataSourceItem {
 }
 
 const dataSource: DataSourceItem[] = [
+  { id: 1,
+   value: "Please fill out the TMRC survey here",
+   link: survey}];
+/*
   {
   id:1,value:"Please register ASAP to reserve your spot at the conference. We are reaching capacity, and conference registration may be paused soon.",
   link: 'conference-registration'},
 ];
+*/
+function isExternalUrl(link: string | URL): boolean {
+  if (link instanceof URL) {
+    return true;
+  }
 
+  return /^(https?:)?\/\//i.test(link);
+}
+
+function getHref(link: string | URL): string {
+  return link instanceof URL ? link.href : link;
+}
+  
 const reversedSource= computed(()=> dataSource.slice().reverse())
 </script>
 
@@ -61,16 +77,36 @@ const reversedSource= computed(()=> dataSource.slice().reverse())
   <div v-for="item in reversedSource" :key="item.id"
   class="fs-4"
   >
+ <a
+        v-if="item.link && isExternalUrl(item.link)"
+        :href="getHref(item.link)"
+        class="announcment-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ item.value }}
+    </a>
+
+    <RouterLink
+        v-else="item.link"
+        :to="item.link"
+        class="announcment-link"
+      >
+        {{ item.value }}
+    </RouterLink>
+
+    <!--
         <RouterLink v-if="item.link" :to="item.link"
         class="announcment-link"
         >{{ item.value }}</RouterLink>
         <span v-else>{{ item.value }}</span>
+    -->
     </div>
   </div>
   <section class="main p-4 row">
-    <p>
+    <!--p>
       Please fill out the TMRC survey <a :href="survey.href" target="_blank" rel="noopener noreferrer">here</a>
-    </p>
+    </p-->
     <UCSDCarousel class="col-12 col-md-6 h-100"/>
 
     <div class="col-12 col-md-6 h-100">
