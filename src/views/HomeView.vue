@@ -31,7 +31,7 @@ defineProps({
 })
 const { isLight } = useThemeMode()
 const HomeBg = new URL('../assets/home-bg.jpg', import.meta.url)
-
+//const survey= new URL('https://www.surveymonkey.com/r/99QFVL3')
 interface DataSourceItem {
   id: number;
   value: string;
@@ -39,10 +39,33 @@ interface DataSourceItem {
 }
 
 const dataSource: DataSourceItem[] = [
+  { id: 1,
+   value: "See the results for the TMRC 2026 survey here",
+   link: 'survey'}];
+
+  /*
+  { id: 1,
+   value: "Please fill out the TMRC survey here",
+   link: survey}];
+
   {
   id:1,value:"Please register ASAP to reserve your spot at the conference. We are reaching capacity, and conference registration may be paused soon.",
   link: 'conference-registration'},
 ];
+*/
+function isExternalUrl(link?: string | URL): boolean {
+  if (!link) {return false}
+  if (link instanceof URL) {
+    return true;
+  }
+
+  return /^(https?:)?\/\//i.test(link);
+}
+
+function getHref(link?: string | URL): string {
+  if (!link) {return ''}
+  return link instanceof URL ? link.href : link;
+}
 
 const reversedSource= computed(()=> dataSource.slice().reverse())
 </script>
@@ -61,13 +84,36 @@ const reversedSource= computed(()=> dataSource.slice().reverse())
   <div v-for="item in reversedSource" :key="item.id"
   class="fs-4"
   >
+ <a
+        v-if="item.link && isExternalUrl(item.link)"
+        :href="getHref(item.link)"
+        class="announcment-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ item.value }}
+    </a>
+
+    <RouterLink
+        v-else-if="item.link"
+        :to="item.link"
+        class="announcment-link"
+      >
+        {{ item.value }}
+    </RouterLink>
+
+    <!--
         <RouterLink v-if="item.link" :to="item.link"
         class="announcment-link"
         >{{ item.value }}</RouterLink>
         <span v-else>{{ item.value }}</span>
+    -->
     </div>
   </div>
   <section class="main p-4 row">
+    <!--p>
+      Please fill out the TMRC survey <a :href="survey.href" target="_blank" rel="noopener noreferrer">here</a>
+    </p-->
     <UCSDCarousel class="col-12 col-md-6 h-100"/>
 
     <div class="col-12 col-md-6 h-100">
